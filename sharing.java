@@ -1,4 +1,3 @@
-package bike;
 public class Sharing {
 
     private Timer time = null;
