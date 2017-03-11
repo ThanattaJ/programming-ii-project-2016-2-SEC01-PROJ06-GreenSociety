@@ -1,24 +1,24 @@
 public class Sharing {
 
-    private Timer time = null;
-    private String timeDetail = null;
-    private String type;
-    private String equip;
-    private long cp;
-    private long cpUse = 0;
-    private int[] numBikeUser = {0, 0, 0, 0, 0};
-    private static int numUtilityB = 100;
-    private static int numCruiserB = 100;
-    private static int numTouringB = 100;
-    private static int numHelmets = 100;
-    private static int numKnee = 100;
+    private Timer time = null; //เวลา
+    private String timeDetail = null; //รายละเอียด
+    private String type; //ชนิด
+    private String equip; //อุปกรณ์
+    private long cp; //ซีพี
+    private long cpUse = 0; //ซีพีที่userใช้
+    private int[] numBikeUser = {0, 0, 0, 0, 0}; //จำนวนที่ user ยืมแต่ละอุปกรณ์
+    private static int numUtilityB = 100; //จำนวนจักนยาน ชนิด Utility ที่เหลืออยู่
+    private static int numCruiserB = 100; //จำนวนจักนยาน ชนิด Cruiser ที่เหลืออยู่
+    private static int numTouringB = 100; //จำนวนจักนยาน ชนิด Touring ที่เหลืออยู่
+    private static int numHelmets = 100; //จำนวนหมวกที่เหลืออยู่
+    private static int numKnee = 100; //จำนวนสนับเข่าที่เหลืออยู่
 
-    public Sharing() {
+    public Sharing() { //constructors
         this.cp = 0;
 
     }
 
-    public String showType() {
+    public String showType() { //แสดงประเภทจักรยานที่ให้ยืม
         return "Type : \n"
                 + "1.Utility Bike (100CP)\n Remaining : " + numUtilityB + "\n"
                 + "2.Cruiser Bike (125CP)\n Remaining : " + numCruiserB + "\n"
@@ -33,7 +33,7 @@ public class Sharing {
                 + "3.null";
     }
 
-    public void borrowType(int t, int count) {
+    public void borrowType(int t, int count) { //ระบุจำนวนยืมจักรยานแต่ละชนิด
         switch (t) {
             case 1:
                 numBikeUser[0] += count;
@@ -58,7 +58,7 @@ public class Sharing {
         }
     }
 
-    public void borrowEquip(int e, int count) {
+    public void borrowEquip(int e, int count) { //ระบุจำนวนยืมอุปกรณ์
         switch (e) {
             case 1:
                 numBikeUser[3] += count;
@@ -78,8 +78,8 @@ public class Sharing {
                 break;
         }
     }
-
-    public void returnType(int numUB, int numCB, int numTB) {
+ 
+    public void returnType(int numUB, int numCB, int numTB) { //คืนจักรยาน
         numUtilityB += numUB;
         numCruiserB += numCB;
         numTouringB += numTB;
@@ -88,14 +88,14 @@ public class Sharing {
         numBikeUser[2] = 0;
     }
 
-    public void returnEquip(int numHel, int numKn) {
+    public void returnEquip(int numHel, int numKn) { //คืนอุปกรณ์
         numHelmets += numHel;
         numKnee += numKn;
         numBikeUser[3] = 0;
         numBikeUser[4] = 0;
     }
 
-    public void edit(int num, int count) {
+    public void edit(int num, int count) { //แก้ไขสิ่งของที่ยืมรวมถึงเวลา
         switch (num) {
             case 1:
                 if (numBikeUser[0] > 0) {
@@ -158,7 +158,7 @@ public class Sharing {
         }
     }
 
-    public void countCpBorrow() {
+    public void countCpBorrow() { //คำนวนCp ที่จะต้องใช้แลกยืม
         int temp = 0;
         if (numBikeUser[0] > 0) {
             temp += numBikeUser[0] * 100;
@@ -179,16 +179,16 @@ public class Sharing {
         cpUse = temp;
     }
 
-    public void increseCp(long c) {
+    public void increseCp(long c) { //เพิ่มCp
         long nCp = c * 50;
         cp += nCp;
     }
 
-    public void decreseCp(long c) {
+    public void decreseCp(long c) { //ลดCp
         cp -= c;
     }
 
-    public boolean checkCp(long c) {
+    public boolean checkCp(long c) { //check Cp ของ user กับ cp ทั้งหมดที่ต้องนำมาใช้แลกเพื่อยืม
         boolean temp = false;
         if (c > cp) {
             temp = false;
@@ -198,13 +198,13 @@ public class Sharing {
         return temp;
     }
 
-    public void startBorrow() throws InterruptedException {
+    public void startBorrow() throws InterruptedException { //เริ่มยืม
         decreseCp(cpUse);
         time.start();
         timeDetail = time.showDetail();
     }
 
-    public void stopBorrow() {
+    public void stopBorrow() { //หยุดยืม(นำของมาคืน)
         type = "";
         equip = "";
         time.stop();
@@ -213,18 +213,18 @@ public class Sharing {
         returnEquip(numBikeUser[3], numBikeUser[4]);
     }
 
-    public void enterTime(int userDate, int userMonth, int userYear, int userHr, int userMin, int userSec) {
+    public void enterTime(int userDate, int userMonth, int userYear, int userHr, int userMin, int userSec) { //ระบุวันเวลาที่จะคืน
         time = new Timer(userDate, userMonth, userYear, userHr, userMin, userSec);
         time.differentTime();
         timeDetail = time.showDetail();
     }
 
-    public void increaseTime(int hr, int min, int sec) {
+    public void increaseTime(int hr, int min, int sec) { //เพิ่มเวลาในการยืม
         time.increaseTime(hr, min, sec);
         timeDetail = time.showDetail();
     }
 
-    public String allDetail() {
+    public String allDetail() { //แสดงข้อมูลทั้งหมด
         countCpBorrow();
         boolean check = checkCp(cpUse);
         if (check == true) {
@@ -248,11 +248,11 @@ public class Sharing {
         }
     }
 
-    public String getTimeDetail() {
+    public String getTimeDetail() { //แสดงข้อมูลวันทั้งวันยืมและคืและเวลาที่เหลือ
         return timeDetail;
     }
 
-    public long getCp() {
+    public long getCp() { //แสดงค่า Cp
         return cp;
     }
 
