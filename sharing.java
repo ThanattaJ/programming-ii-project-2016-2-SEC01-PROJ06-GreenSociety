@@ -1,7 +1,7 @@
 public class Sharing {
 
     private Timer time = null; //เวลา
-    private String timeDetail = null; //รายละเอียด
+    private String timeDetail = null; //รายละเอียดเวลา
     private String type; //ชนิด
     private String equip; //อุปกรณ์
     private long cp; //ซีพี
