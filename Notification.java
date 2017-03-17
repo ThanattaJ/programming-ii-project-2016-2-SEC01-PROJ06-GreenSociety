@@ -19,11 +19,12 @@ public class Notification {
             return true;
         }
     }
-    
-    public String notiRepairFinish(){  //แจ้งเตือนซ่อมเสร็จ
-        return "Repairs completed,You can pick up it. From this day onwards.";
+        
+    public String notiRepairFinish(){ //แจ้งเตือนซ่อมเสร็จ
+        return "---Notification---\nRepairs completed,You can pick up it. From this day onwards.";
     }
+    
     public String notiRepairIncreseTime(String oldDate,String detail,String newDate){
-        return oldDate  + "\n" + detail + "\n" + newDate;
+        return "---Notification---\n>>Old Date :\n"+oldDate  + "\n>>Detail :\n" + detail + "\n>>New Date :\n" + newDate;
     }
 }
