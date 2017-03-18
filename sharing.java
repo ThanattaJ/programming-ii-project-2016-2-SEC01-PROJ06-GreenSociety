@@ -12,6 +12,7 @@ public class Sharing {
     private static int numTouringB = 100; //จำนวนจักนยาน ชนิด Touring ที่เหลืออยู่
     private static int numHelmets = 100; //จำนวนหมวกที่เหลืออยู่
     private static int numKnee = 100; //จำนวนสนับเข่าที่เหลืออยู่
+    private int statToBorrow[] = {0,0,0,0,0}; //เก็บสถิติการยืม
 
     public Sharing() { //constructors
         this.cp = 0;
@@ -255,5 +256,37 @@ public class Sharing {
     public long getCp() { //แสดงค่า Cp
         return cp;
     }
-
+    
+    public String shoowStatBorror(){
+        String b = "";
+        String e = "";
+        int max = 0;
+        int temp = 0;
+        
+        for(int i = 0;i <statToBorrow.length-2;i++){
+            if(max <= statToBorrow[i]){
+                max = statToBorrow[i];
+                temp = i;
+                switch(temp){
+                    case 0: b += "Utility Bike : " + max; break;
+                    case 1: b += "Crusier Bike : " + max; break;
+                    case 2: b += "Touring Bike : " + max; break;
+                }
+            }
+        }
+        
+        max = 0;
+        for(int i = 3;i <statToBorrow.length;i++){
+            if(max <= statToBorrow[i]){
+                max = statToBorrow[i];
+                temp = i;
+                switch(temp){
+                    case 3: e += "Bicycle Helmets : " + max; break;
+                    case 4: e += "Knee : " + max; break;
+                }
+            }
+        }        
+        return "The type of bicycle the most borrow of you is " + b +
+                "\nThe equipment the most borrow of you is " + e;
+    }
 }
