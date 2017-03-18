@@ -257,36 +257,53 @@ public class Sharing {
         return cp;
     }
     
-    public String shoowStatBorror(){
+    public String shoowStatBorrow() {
         String b = "";
         String e = "";
         int max = 0;
         int temp = 0;
-        
-        for(int i = 0;i <statToBorrow.length-2;i++){
-            if(max <= statToBorrow[i]){
+
+        for (int i = 0; i < statToBorrow.length - 2; i++) {
+            if (max < statToBorrow[i]) {
                 max = statToBorrow[i];
                 temp = i;
-                switch(temp){
-                    case 0: b += "Utility Bike : " + max; break;
-                    case 1: b += "Crusier Bike : " + max; break;
-                    case 2: b += "Touring Bike : " + max; break;
+            } else if (max == statToBorrow[i] && max != 0) {
+                switch (temp) {
+                    case 0:b += "Utility Bike : " + max; break;
+                    case 1:b += "Crusier Bike : " + max; break;
+                    case 2:b += "Touring Bike : " + max; break;
                 }
+                b += "\n";
+                temp = i;
             }
         }
-        
+        switch (temp) {
+            case 0:b += "Utility Bike : " + max; break;
+            case 1:b += "Crusier Bike : " + max; break;
+            case 2:b += "Touring Bike : " + max; break;
+        }
+
         max = 0;
-        for(int i = 3;i <statToBorrow.length;i++){
-            if(max <= statToBorrow[i]){
+        for (int i = 3; i < statToBorrow.length; i++) {
+            if (max < statToBorrow[i]) {
                 max = statToBorrow[i];
                 temp = i;
-                switch(temp){
-                    case 3: e += "Bicycle Helmets : " + max; break;
-                    case 4: e += "Knee : " + max; break;
+            } else if (max == statToBorrow[i] && max != 0) {
+                switch (temp) {
+                    case 3:e += "Bicycle Helmets : " + max; break;
+                    case 4:e += "Knee : " + max; break;
                 }
+                e += "\n";
+                temp = i;
             }
-        }        
-        return "The type of bicycle the most borrow of you is " + b +
-                "\nThe equipment the most borrow of you is " + e;
+        }
+
+        switch (temp) {
+            case 3:e += "Bicycle Helmets : " + max; break;
+            case 4:e += "Knee : " + max; break;
+        }
+
+        return "The type of bicycle the most borrow of you >>> " + b
+                + "\nThe equipment the most borrow of you >>> " + e;
     }
 }
