@@ -1,18 +1,20 @@
+package bike;
 public class Sharing {
 
     private Timer time = null; //เวลา
-    private String timeDetail = null; //รายละเอียดเวลา
+    private boolean isReturn = true;
+    private String timeDetail = null; //รายละเอียด
     private String type; //ชนิด
     private String equip; //อุปกรณ์
     private long cp; //ซีพี
     private long cpUse = 0; //ซีพีที่userใช้
     private int[] numBikeUser = {0, 0, 0, 0, 0}; //จำนวนที่ user ยืมแต่ละอุปกรณ์
     private static int numUtilityB = 100; //จำนวนจักนยาน ชนิด Utility ที่เหลืออยู่
-    private static int numCruiserB = 100; //จำนวนจักนยาน ชนิด Cruiser ที่เหลืออยู่
-    private static int numTouringB = 100; //จำนวนจักนยาน ชนิด Touring ที่เหลืออยู่
-    private static int numHelmets = 100; //จำนวนหมวกที่เหลืออยู่
-    private static int numKnee = 100; //จำนวนสนับเข่าที่เหลืออยู่
-    private int statToBorrow[] = {0,0,0,0,0}; //เก็บสถิติการยืม
+    private static int numCruiserB = 100;//จำนวนจักนยาน ชนิด Cruiser ที่เหลืออยู่
+    private static int numTouringB = 100;//จำนวนจักนยาน ชนิด Touring ที่เหลืออยู่
+    private static int numHelmets = 100;//จำนวนหมวกที่เหลืออยู่
+    private static int numKnee = 100;//จำนวนสนับเข่าที่เหลืออยู่
+        private int statToBorrow[] = {0,0,0,0,0}; //เก็บสถิติการยืม
 
     public Sharing() { //constructors
         this.cp = 0;
@@ -39,16 +41,17 @@ public class Sharing {
             case 1:
                 numBikeUser[0] += count;
                 numUtilityB -= count;
+                statToBorrow[0]+=count;
                 break;
             case 2:
                 numBikeUser[1] += count;
                 numCruiserB -= count;
-                ;
+                statToBorrow[1]+=count;
                 break;
             case 3:
                 numBikeUser[2] += count;
                 numTouringB -= count;
-                ;
+                statToBorrow[2]+=count;
                 break;
             case 4:
                 type += "null";
@@ -64,12 +67,12 @@ public class Sharing {
             case 1:
                 numBikeUser[3] += count;
                 numHelmets -= count;
-                ;
+                statToBorrow[3]+=count;
                 break;
             case 2:
                 numBikeUser[4] += count;
                 numKnee -= count;
-                ;
+                statToBorrow[4]+=count;
                 break;
             case 3:
                 equip += "null";
@@ -79,7 +82,7 @@ public class Sharing {
                 break;
         }
     }
- 
+
     public void returnType(int numUB, int numCB, int numTB) { //คืนจักรยาน
         numUtilityB += numUB;
         numCruiserB += numCB;
@@ -101,55 +104,70 @@ public class Sharing {
             case 1:
                 if (numBikeUser[0] > 0) {
                     numUtilityB += numBikeUser[0];
+                    statToBorrow[0] -= numBikeUser[0];
                     numBikeUser[0] = count;
                     numUtilityB -= count;
+                    statToBorrow[0] += count;
                 } else {
                     numBikeUser[0] = count;
                     numUtilityB -= count;
+                    statToBorrow[0] += count;
                 }
                 break;
 
             case 2:
                 if (numBikeUser[1] > 0) {
                     numCruiserB += numBikeUser[1];
+                    statToBorrow[1] -= numBikeUser[1];
                     numBikeUser[1] = count;
                     numCruiserB -= count;
+                    statToBorrow[1] += count;
                 } else {
                     numBikeUser[1] = count;
                     numCruiserB -= count;
+                    statToBorrow[1] += count;
                 }
                 break;
 
             case 3:
                 if (numBikeUser[2] > 0) {
                     numTouringB += numBikeUser[2];
+                    statToBorrow[2] += numBikeUser[2];
                     numBikeUser[2] = count;
                     numTouringB -= count;
+                    statToBorrow[2] += count;
                 } else {
                     numBikeUser[2] = count;
                     numTouringB -= count;
+                    statToBorrow[2] += count;
                 }
                 break;
 
             case 4:
                 if (numBikeUser[3] > 0) {
                     numHelmets += numBikeUser[3];
+                    statToBorrow[0] += numBikeUser[3];
                     numBikeUser[3] = count;
                     numHelmets -= count;
+                    statToBorrow[3] += count;
                 } else {
                     numBikeUser[3] = count;
                     numHelmets -= count;
+                    statToBorrow[3] += count;
                 }
                 break;
 
             case 5:
                 if (numBikeUser[4] > 0) {
                     numKnee += numBikeUser[4];
+                    statToBorrow[4] += numBikeUser[4];
                     numBikeUser[4] = count;
                     numKnee -= count;
+                    statToBorrow[4] += count;
                 } else {
                     numBikeUser[4] = count;
                     numKnee -= count;
+                    statToBorrow[4] += count;
                 }
                 break;
 
@@ -189,7 +207,7 @@ public class Sharing {
         cp -= c;
     }
 
-    public boolean checkCp(long c) { //check Cp ของ user กับ cp ทั้งหมดที่ต้องนำมาใช้แลกเพื่อยืม
+    public boolean checkCp(long c) { //check Cpของuserกับcpทั้งหมดที่ต้องนำมาใช้แลกเพื่อยืม
         boolean temp = false;
         if (c > cp) {
             temp = false;
@@ -201,8 +219,12 @@ public class Sharing {
 
     public void startBorrow() throws InterruptedException { //เริ่มยืม
         decreseCp(cpUse);
+        isReturn = false;
         time.start();
-        timeDetail = time.showDetail();
+        if(time.getTotalHour() == 0 && time.getTotalMin() == 0 && time.getTotalSeconds() == 0 && isReturn == false){
+            decreseCp(cp*2);
+        }
+        
     }
 
     public void stopBorrow() { //หยุดยืม(นำของมาคืน)
@@ -212,6 +234,7 @@ public class Sharing {
         timeDetail = time.showDetail();
         returnType(numBikeUser[0], numBikeUser[1], numBikeUser[2]);
         returnEquip(numBikeUser[3], numBikeUser[4]);
+        isReturn = true;
     }
 
     public void enterTime(int userDate, int userMonth, int userYear, int userHr, int userMin, int userSec) { //ระบุวันเวลาที่จะคืน
@@ -250,6 +273,7 @@ public class Sharing {
     }
 
     public String getTimeDetail() { //แสดงข้อมูลวันทั้งวันยืมและคืและเวลาที่เหลือ
+        timeDetail = time.showDetail();
         return timeDetail;
     }
 
@@ -257,7 +281,7 @@ public class Sharing {
         return cp;
     }
     
-    public String shoowStatBorrow() {
+    public String showStatBorrow() {
         String b = "";
         String e = "";
         int max = 0;
@@ -306,4 +330,5 @@ public class Sharing {
         return "The type of bicycle the most borrow of you >>> " + b
                 + "\nThe equipment the most borrow of you >>> " + e;
     }
+    
 }
