@@ -6,9 +6,9 @@ public class Notification {
     
     public boolean notiTime(int hr,int min,int sec){  //แจ้งเตือนเวลา
         if(hr==0 && min == 10 && sec ==0){
-              return false;
+              return true;
           }
-          return true;
+          return false;
     }
         
     public String notiRepairFinish(){ //แจ้งเตือนซ่อมเสร็จ
