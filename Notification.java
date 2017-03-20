@@ -5,19 +5,10 @@ public class Notification {
     }
     
     public boolean notiTime(int hr,int min,int sec){  //แจ้งเตือนเวลา
-        if(hr == 1 && min == 0 && sec ==0){
-            System.out.println("Time left :" + hr +":"+min+":"+sec); 
-            return true;
-        }else if(hr == 0 && min == 30 && sec ==0){
-            System.out.println("Time left :" + hr +":"+min+":"+sec);
-            return true;
-        }else if(hr == 0 && min == 10 && sec ==0){
-            System.out.println("Time left :" + hr +":"+min+":"+sec);
-            System.out.println("");
-            return false;
-        }else{
-            return true;
-        }
+        if(hr==0 && min == 10 && sec ==0){
+              return false;
+          }
+          return true;
     }
         
     public String notiRepairFinish(){ //แจ้งเตือนซ่อมเสร็จ
