@@ -1,7 +1,51 @@
+import java.sql.*;
+
 public class Notification {
-    
-    public String notiNews(String nameNews,String content){ //แจ้งเตือนข่าวใหม่
-        return nameNews + " : \n" + content;
+    private User usr;
+    private Database db;
+
+    public Notification() {
+    }
+
+    public int notiNews() {
+        String nameUser = usr.getName();
+        String sql;
+        Connection connect = null;
+        int unRead = 0,read = 0,countNews=0;
+        int idUser;
+        Statement s = null;
+        try {
+            connect = db.connectDb("ja","jaja036");
+            s = connect.createStatement();
+            sql = "SELECT * FROM User WHERE Name = '" + nameUser + "'";
+            ResultSet rs = s.executeQuery(sql);
+            idUser = rs.getInt("userID");
+            
+            sql = "SELECT COUNT(newsID) AS countRead FROM News_Reader WHERE userID='" + idUser + "'";
+            rs = s.executeQuery(sql);
+            while(rs.next()){
+                read = rs.getInt("countRead");
+            }
+            
+            sql = "SELECT COUNT(newsID) AS countNews FROM News";
+            rs = s.executeQuery(sql);
+            while(rs.next()){
+                countNews = rs.getInt("countNews");
+            }
+            
+            unRead = countNews-read;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+                connect.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return unRead;
     }
     
     public boolean notiTime(int hr,int min,int sec){  //แจ้งเตือนเวลา
@@ -16,6 +60,6 @@ public class Notification {
     }
     
     public String notiRepairIncreseTime(String oldDate,String detail,String newDate){
-        return "---Notification---\n>>Old Date :\n"+oldDate  + "\n>>Detail :\n" + detail + "\n>>New Date :\n" + newDate;
+        return "---Notification---\n>>Old Date :\n" + oldDate  + "\n>>Detail :\n" + detail + "\n>>New Date :\n" + newDate;
     }
 }
