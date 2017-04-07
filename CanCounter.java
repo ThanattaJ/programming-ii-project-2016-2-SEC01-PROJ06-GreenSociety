@@ -1,10 +1,10 @@
+package bike;
+
 import java.sql.*;
 
 public class CanCounter {
-    private User us;
-    private static long transId;
-    private int cp;
-    private int cpUse;
+    private int cp = 1000;
+    private int cpUse = 0;
     private String action;
     private int count;
     
@@ -69,7 +69,6 @@ public class CanCounter {
         try{
             con = Database.connectDb("ja","jaja036");
             Statement s = con.createStatement();
-            transId++;
             String sql = "UPDATE User SET can_point='"+point+"' WHERE userID='12345'";
             s.executeUpdate(sql);
         }
@@ -86,11 +85,19 @@ public class CanCounter {
     
     public void insertTransDeposite(long dep){
         Connection con = null;
+        String sql ="";
+        int id = 0;
         try{
             con = Database.connectDb("ja","jaja036");
             Statement s = con.createStatement();
-            transId++;
-            String sql = "INSERT INTO CP_Transaction VALUES ('"+transId+"','111','"+dep+"','-')";
+            
+            sql = "SELECT MAX(transactionID) AS id FROM CP_Transaction";
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            id += 1;
+            sql = "INSERT INTO CP_Transaction VALUES ('"+id+"','111','"+dep+"',0)";
             s.executeUpdate(sql);
         }
         catch(Exception e){
@@ -106,11 +113,19 @@ public class CanCounter {
     
     public void insertTransWithdraw(long wit){
         Connection con = null;
+        String sql ="";
+        int id = 0;
         try{
             con = Database.connectDb("ja","jaja036");
             Statement s = con.createStatement();
-            transId++;
-            String sql = "INSERT INTO CP_Transaction VALUES ('"+transId+"','111','-','"+wit+"')";
+            
+            sql = "SELECT MAX(transactionID) AS id FROM CP_Transaction";
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            id += 1;
+            sql = "INSERT INTO CP_Transaction VALUES ('"+id+"','111',0,'"+wit+"')";
             s.executeUpdate(sql);
         }
         catch(Exception e){
@@ -133,7 +148,7 @@ public class CanCounter {
     }
     
     
-    public long getCp() { //แสดงค่า Cp
+    public int getCp() { //แสดงค่า Cp
         return cp;
     }
 
@@ -158,12 +173,13 @@ public class CanCounter {
         updateCP(cp);
     }
     
-    public boolean checkCp() { //check Cpของuserกับcpทั้งหมดที่ต้องนำมาใช้แลกเพื่อยืม
+    public boolean checkCp() throws CanCountException { //check Cpของuserกับcpทั้งหมดที่ต้องนำมาใช้แลกเพื่อยืม
         boolean temp = false;
-        if (cpUse > cp) {
-            temp = false;
-        } else if (cpUse <= cp) {
+        if (cpUse <= cp) {
             temp = true;
+        }else{
+            CanCountException cce = new CanCountException();
+            throw cce;
         }
         return temp;
     }
