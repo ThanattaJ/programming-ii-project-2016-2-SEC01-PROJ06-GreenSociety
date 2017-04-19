@@ -21,7 +21,7 @@ public class Notification {
             ResultSet rs = s.executeQuery(sql);
             idUser = rs.getInt("userID");
             
-            sql = "SELECT COUNT(newsID) AS countRead FROM News_Reader WHERE userID='" + idUser + "'";
+            sql = "SELECT COUNT(newsID) AS countRead FROM News_Reader WHERE userID='12345'";
             rs = s.executeQuery(sql);
             while(rs.next()){
                 read = rs.getInt("countRead");
@@ -47,19 +47,25 @@ public class Notification {
 
         return unRead;
     }
-    
-    public boolean notiTime(int hr,int min,int sec){  //แจ้งเตือนเวลา
-        if(hr==0 && min == 10 && sec ==0){
+
+    public boolean notiTime(Object obj,int hr, int min, int sec) {
+          if(obj instanceof Sharing){
+            if(hr==0 && min == 10 && sec ==0){
               return true;
+            }
+          }else if(obj instanceof Repair){
+            if(hr==0 && min == 3 && sec ==0){
+                return true;
+            }
           }
           return false;
     }
-        
-    public String notiRepairFinish(){ //แจ้งเตือนซ่อมเสร็จ
+
+    public String notiRepairFinish() {
         return "---Notification---\nRepairs completed,You can pick up it. From this day onwards.";
     }
-    
-    public String notiRepairIncreseTime(String oldDate,String detail,String newDate){
-        return "---Notification---\n>>Old Date :\n" + oldDate  + "\n>>Detail :\n" + detail + "\n>>New Date :\n" + newDate;
+
+    public String notiRepairIncreseTime(String oldDate, String detail, String newDate) {
+        return "---Notification---\n>>Old Date :\n" + oldDate + "\n>>Detail :\n" + detail + "\n>>New Date :\n" + newDate;
     }
 }
