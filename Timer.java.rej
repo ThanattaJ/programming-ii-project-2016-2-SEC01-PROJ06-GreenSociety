@@ -1,0 +1,78 @@
+diff a/Timer.java b/Timer.java	(rejected hunks)
+@@ -1,9 +1,8 @@
+ package int105.timer;
+ import java.text.SimpleDateFormat;
+-import java.util.Calendar;
+ import java.util.Date;
++import java.util.Scanner;
+ public class Timer {
+-    //private String total;
+     private String timeLeft;
+     private int totalSeconds;   //ผลต่างเวลาทั้งหมด
+     private int totalMin;       //      ''
+@@ -13,10 +12,11 @@
+     private SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+     private String returnDate;
+     private String borrowDate;
++    private Notification nf = new Notification();
+    
+     
+     public Timer() {
+-        
++        borrowDate = df.format(nowTime);
+     }
+ 
+     public Timer(int userDate, int userMonth, int userYear,int userHr, int userMin, int userSec) {
+@@ -185,13 +185,27 @@
+                 for(int k = 0;k<60;k++){
+                     Thread.sleep(1000);
+                     totalSeconds--;
+-                    timeLeft = "Time Left : "+totalHour+":"+totalMin+":"+totalSeconds;  //เวลาที่เหลือ
++                    timeLeft = "Time Left : "+totalHour+":"+totalMin+":"+totalSeconds;
++                    if(nf.notiTime(totalHour,totalMin,totalSeconds)){
++                        Scanner sc = new Scanner(System.in);
++                        System.out.println(timeLeft + "\nDo you want to increase time? (y or n)");
++                        String result = sc.nextLine();
++                        if(result.equalsIgnoreCase("y")){
++                            System.out.print("Please Enter Hour Do you want to increase : ");
++                            int h = sc.nextInt();
++                            System.out.print("Please Enter Minutes Do you want to increase : ");
++                            int m = sc.nextInt();
++                            System.out.print("Please Enter Secound Do you want to increase : ");
++                            int s = sc.nextInt();
++                            increaseTime(h, m, s);
++                        }
++                    }
+                     System.out.println(timeLeft);
+-                    if(totalSeconds == 0){  //ถ้าวินาที == 0 ให้หยุด
++                    if(totalSeconds == 0){
+                         break;
+                     }
+                 }
+-                totalMin--;     
++                totalMin--;
+                 
+                 if(totalMin==-1){       //ถ้านาทีติดลบ
+                     totalMin = 0;       //นาที = 0
+@@ -206,4 +220,19 @@
+             }
+         }
+     }
+-}
+\ No newline at end of file
++    public int getTotalSeconds() {
++        return totalSeconds;
++    }
++
++    public int getTotalMin() {
++        return totalMin;
++    }
++
++    public int getTotalHour() {
++        return totalHour;
++    }
++
++    public Date getNowTime() {
++        return nowTime;
++    }
++}
