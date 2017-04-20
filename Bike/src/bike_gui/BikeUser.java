@@ -77,6 +77,7 @@ public class BikeUser extends javax.swing.JFrame {
             increase[0] = Integer.parseInt(textHour.getText());
             increase[1] = Integer.parseInt(cbMin.getSelectedItem().toString());
             increase[2] = Integer.parseInt(cbSec.getSelectedItem().toString());
+            sh.decreseCPNoti();
         }
         return increase;
     }

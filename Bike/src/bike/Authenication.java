@@ -41,7 +41,6 @@ public class Authenication {
                         accept = true;
                         rs.beforeFirst();
                         while(rs.next()){
-                            System.out.println("Success");
                             Date dt = rs.getTimestamp("birthDate");
                             User.setUserId(rs.getInt("userID"));
                             User.setFirstName(rs.getString("firstName"));
@@ -55,22 +54,20 @@ public class Authenication {
                         }
                         
                         String tmp = User.getDeptId().substring(0,2);
-                        System.out.println(tmp);
                         sql = "SELECT * FROM Department WHERE deptID='"+tmp+"'";
                         rs = st.executeQuery(sql);
                         if(rs.next()){
-                            System.out.println("Success");
                             User.setDept(rs.getString("deptName"));
                         }
                         
                         sql = "SELECT * FROM Officer WHERE userID='"+User.getUserId()+"'";
                         rs = st.executeQuery(sql);
                         if(rs.next()){
-                            System.out.println("Success");
                             User.setOfficeId(rs.getString("officerID"));
                             User.setPositon(rs.getString("position"));
                         }else{
                             User.setOfficeId("-");
+                            User.setPositon("-");
                         }
                         
                         return accept;

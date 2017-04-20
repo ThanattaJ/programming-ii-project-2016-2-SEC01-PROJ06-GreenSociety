@@ -155,7 +155,9 @@ public class Sharing {
             availableItem[i] += numBikeUser[i];
         }
     }
-
+    public void decreseCPNoti(){
+        cp.decreseCp();
+    }
     public void startBorrow() throws InterruptedException{ //เริ่มยืม
         cp.decreseCp();
         isReturn = false;
