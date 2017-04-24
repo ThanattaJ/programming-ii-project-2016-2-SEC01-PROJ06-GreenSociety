@@ -36,6 +36,120 @@ public class Register {
     
     public Register() {
     }
+    
+    public boolean connectDBforCheckEmail(String email){
+        boolean check=false;
+        int countUserId = 0;
+        String []emailDb;
+       
+         try{
+            
+            ConnectDatabase cndb = new ConnectDatabase();
+            Connection connect = ConnectDatabase.connectDb("jan", "jan042");
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            Statement st = connect.createStatement(); 
+            
+            String maxRow = "SELECT COUNT(userId) AS countUserId FROM User";
+            ResultSet rsMaxRow = st.executeQuery(maxRow);
+            
+            while(rsMaxRow.next()){
+                countUserId = rsMaxRow.getInt("countUserId");
+            }
+            emailDb = new String[countUserId];
+            
+            
+            String temp = "SELECT email,deptID FROM `User`";
+            ResultSet rs = st.executeQuery(temp);
+            
+            while(rs.next()){
+                for (int i=0; i<emailDb.length ;i++) {
+                    emailDb[i]=rs.getString("email");
+                }
+                
+            }
+            
+             for (int i = 0; i < emailDb.length; i++) {
+                if(emailDb[i].equalsIgnoreCase(email))
+                    check=false;
+                else
+                    check=true;
+                
+             }
+            
+            try {
+		if(connect != null){
+                    connect.close();
+		}
+		}catch (SQLException e){
+                    e.printStackTrace();
+		}                
+        }
+        
+        catch(ClassNotFoundException cfe){
+            System.out.println(cfe);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return false; 
+     }
+    
+    public boolean connectDBforCheckId(String id){
+        boolean check=false;
+        int countUserId = 0;
+        String []idDb;
+        
+         try{
+            
+            ConnectDatabase cndb = new ConnectDatabase();
+            Connection connect = ConnectDatabase.connectDb("jan", "jan042");
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            Statement st = connect.createStatement(); 
+            
+            String maxRow = "SELECT COUNT(userId) AS countUserId FROM User";
+            ResultSet rsMaxRow = st.executeQuery(maxRow);
+            
+            while(rsMaxRow.next()){
+                countUserId = rsMaxRow.getInt("countUserId");
+            }
+            idDb = new String[countUserId];
+            
+            String temp = "SELECT email,deptID FROM `User`";
+            ResultSet rs = st.executeQuery(temp);
+            
+            while(rs.next()){
+                for(int j=0;j<idDb.length;j++){
+                    idDb[j] = rs.getString("deptID");
+                }
+            }
+            
+            for(int j=0; j < idDb.length; j++){
+                if(idDb[j].equalsIgnoreCase(id))
+                    check=false;
+                else
+                    check=true;
+            }
+             
+            
+            try {
+		if(connect != null){
+                    connect.close();
+		}
+		}catch (SQLException e){
+                    e.printStackTrace();
+		}                
+        }
+        
+        catch(ClassNotFoundException cfe){
+            System.out.println(cfe);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return false; 
+     }
 
     public Register(String name, String surname, String gender, Date birthDate, 
             String conDisease, String email, String tel, String deptID, 
@@ -61,23 +175,9 @@ public class Register {
         }
     }
     
-    public void password(String oldPass,String newPass){//พาสเวิร์ดที่ user ใส่มาสองรอบต้องเป็นตัวเดียวกัน
-        Scanner sc =new Scanner(System.in);
-        if(oldPass==newPass){
-           password = newPass;
-        }else{
-            while(oldPass!=newPass){
-                System.out.print("Password: ");
-                oldPass = sc.next();
-                System.out.print("Confirm Password: ");
-                newPass = sc.next();
-            }
-            password = newPass;
-        }
-    }
     
-    public void encocdMd5(){ //เอา Password มาแปลงเป็น md5
-        String input = password;
+   public StringBuffer encocdMd5(String input){ //เอา Password มาแปลงเป็น md5
+        StringBuffer pass = null;
         try{
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(input.getBytes());
@@ -87,11 +187,11 @@ public class Register {
             String hash = DatatypeConverter.printHexBinary(mdhash).toLowerCase();
             System.out.println("Datatype Converter: "+hash);
             
-            sb =new StringBuffer();
+            pass =new StringBuffer();
             for(int i=0;i<mdhash.length;i++){
-                sb.append(Integer.toString((mdhash[i] & 0xff)+0x100,16).substring(1));
+                pass.append(Integer.toString((mdhash[i] & 0xff)+0x100,16).substring(1));
             }
-            System.out.println("String Buffer toString: "+ sb.toString());
+            System.out.println("String Buffer toString: "+ pass.toString());
         }
         
         catch(NoSuchAlgorithmException e){
@@ -101,8 +201,9 @@ public class Register {
         catch(Exception e){
             e.printStackTrace();
         }
-    
+        return pass;
     }
+
 
     public String getName() {
         return name;

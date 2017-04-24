@@ -5,23 +5,39 @@
  */
 package Gui;
 
+import Register.Register;
+import java.awt.Image;
+import java.io.File;
 import java.util.Date;
 import java.util.Scanner;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author January
  */
-public class Register extends javax.swing.JFrame {
+public class RegisterGui extends javax.swing.JFrame {
     private ButtonGroup buttonGroup = new ButtonGroup();
+    private Register rs = new Register();
     /**
      * Creates new form Register
      */
-    public Register() {
+    public RegisterGui() {
         initComponents();
         
+    }
+    
+    public ImageIcon resizeImage(String imagePath){
+        String pathImg = imagePath;
+        ImageIcon MyImage = new ImageIcon(imagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(400, 700, 100);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
     }
 
     /**
@@ -72,6 +88,9 @@ public class Register extends javax.swing.JFrame {
         jButtonSignUp = new javax.swing.JButton();
         jRadioButtonGenderFemale = new javax.swing.JRadioButton();
         jRadioButtonGenderMale = new javax.swing.JRadioButton();
+        jLabelPictureProfileRegister = new javax.swing.JLabel();
+        jButtonChooseFileForUpload = new javax.swing.JButton();
+        jLabelPartPictureUserUpload = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,8 +104,8 @@ public class Register extends javax.swing.JFrame {
         jLbSignUp.setFont(new java.awt.Font("Leelawadee", 0, 24)); // NOI18N
         jLbSignUp.setForeground(new java.awt.Color(255, 255, 255));
         jLbSignUp.setText("SignUp");
-        jPanelSignUp.add(jLbSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 195, 50));
-        jPanelSignUp.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 640, 20));
+        jPanelSignUp.add(jLbSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 195, 40));
+        jPanelSignUp.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 640, 20));
 
         jTextFieldTelophone.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldTelophone.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -106,7 +125,7 @@ public class Register extends javax.swing.JFrame {
                 jTextFieldTelophoneActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jTextFieldTelophone, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 230, 30));
+        jPanelSignUp.add(jTextFieldTelophone, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 230, 30));
 
         jTfFirstName.setBackground(new java.awt.Color(0, 0, 0));
         jTfFirstName.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -126,28 +145,28 @@ public class Register extends javax.swing.JFrame {
                 jTfFirstNameActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jTfFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 230, 30));
+        jPanelSignUp.add(jTfFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 230, 30));
 
         jLbLastName.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbLastName.setForeground(new java.awt.Color(255, 255, 255));
         jLbLastName.setText("LastName");
-        jPanelSignUp.add(jLbLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 60, 20));
+        jPanelSignUp.add(jLbLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 60, 20));
 
         jLbDateOfBirth.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbDateOfBirth.setForeground(new java.awt.Color(255, 255, 255));
         jLbDateOfBirth.setText("Date of Birth");
-        jPanelSignUp.add(jLbDateOfBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 80, 20));
+        jPanelSignUp.add(jLbDateOfBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 80, 20));
 
         jLabelStarLN.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLabelStarLN.setForeground(new java.awt.Color(0, 204, 204));
         jLabelStarLN.setText("*");
         jLabelStarLN.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLabelStarLN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 30, 30));
+        jPanelSignUp.add(jLabelStarLN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 30, 30));
 
         jLbId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbId.setForeground(new java.awt.Color(255, 255, 255));
         jLbId.setText("ID");
-        jPanelSignUp.add(jLbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 20, 20));
+        jPanelSignUp.add(jLbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 20, 20));
 
         jComboBoxPosition.setBackground(new java.awt.Color(0, 0, 0));
         jComboBoxPosition.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
@@ -158,17 +177,17 @@ public class Register extends javax.swing.JFrame {
                 jComboBoxPositionActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jComboBoxPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 230, 30));
+        jPanelSignUp.add(jComboBoxPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 230, 30));
 
         jLbGender.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbGender.setForeground(new java.awt.Color(255, 255, 255));
         jLbGender.setText("Gender");
-        jPanelSignUp.add(jLbGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 40, 20));
+        jPanelSignUp.add(jLbGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 40, 20));
 
         jLbPassWord.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbPassWord.setForeground(new java.awt.Color(255, 255, 255));
         jLbPassWord.setText("Password");
-        jPanelSignUp.add(jLbPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 50, 20));
+        jPanelSignUp.add(jLbPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 50, 20));
 
         jTextFieldSurname.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldSurname.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -188,53 +207,53 @@ public class Register extends javax.swing.JFrame {
                 jTextFieldSurnameActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jTextFieldSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 230, 30));
+        jPanelSignUp.add(jTextFieldSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 230, 30));
 
         jLbFirstName.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbFirstName.setForeground(new java.awt.Color(255, 255, 255));
         jLbFirstName.setText("FirstName");
-        jPanelSignUp.add(jLbFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 60, 20));
+        jPanelSignUp.add(jLbFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 60, 20));
 
         jLbStarId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarId.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarId.setText("*");
         jLbStarId.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 30, 30));
+        jPanelSignUp.add(jLbStarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 30, 30));
 
         jLbStarFirstName.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarFirstName.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarFirstName.setText("*");
         jLbStarFirstName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 30, 30));
+        jPanelSignUp.add(jLbStarFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 30, 30));
 
         jLbStarGender.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarGender.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarGender.setText("*");
         jLbStarGender.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 30, 30));
+        jPanelSignUp.add(jLbStarGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 30, 30));
 
         jLbStarBirthDay.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarBirthDay.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarBirthDay.setText("*");
         jLbStarBirthDay.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarBirthDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 30, 30));
+        jPanelSignUp.add(jLbStarBirthDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 30, 30));
 
         jLbStarPassword.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarPassword.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarPassword.setText("*");
         jLbStarPassword.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 30, 30));
+        jPanelSignUp.add(jLbStarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 30, 30));
 
         jLbPosition.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbPosition.setForeground(new java.awt.Color(255, 255, 255));
         jLbPosition.setText("Position");
-        jPanelSignUp.add(jLbPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 50, 20));
+        jPanelSignUp.add(jLbPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 50, 20));
 
         jLbStarPosition.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarPosition.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarPosition.setText("*");
         jLbStarPosition.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 30, 30));
+        jPanelSignUp.add(jLbStarPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 30, 30));
 
         jTextFieldId.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -254,12 +273,12 @@ public class Register extends javax.swing.JFrame {
                 jTextFieldIdActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 230, 30));
+        jPanelSignUp.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 230, 30));
 
         jLbCongenitialDisease.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbCongenitialDisease.setForeground(new java.awt.Color(255, 255, 255));
         jLbCongenitialDisease.setText("Congenitial Disease");
-        jPanelSignUp.add(jLbCongenitialDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 110, 20));
+        jPanelSignUp.add(jLbCongenitialDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 110, 20));
 
         jTextFieldEmail.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
@@ -279,18 +298,18 @@ public class Register extends javax.swing.JFrame {
                 jTextFieldEmailActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 530, 30));
+        jPanelSignUp.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 530, 30));
 
         jLbTelophone.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbTelophone.setForeground(new java.awt.Color(255, 255, 255));
         jLbTelophone.setText("Telophone");
-        jPanelSignUp.add(jLbTelophone, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 60, 20));
+        jPanelSignUp.add(jLbTelophone, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 60, 20));
 
         jLbStarTelophone.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarTelophone.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarTelophone.setText("*");
         jLbStarTelophone.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarTelophone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 30, 30));
+        jPanelSignUp.add(jLbStarTelophone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 30, 30));
 
         jTextFieldConDisease.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldConDisease.setForeground(new java.awt.Color(102, 102, 102));
@@ -309,18 +328,18 @@ public class Register extends javax.swing.JFrame {
                 jTextFieldConDiseaseActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jTextFieldConDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 230, 30));
+        jPanelSignUp.add(jTextFieldConDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 230, 30));
 
         jLbEmail.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLbEmail.setText("E-Mail");
-        jPanelSignUp.add(jLbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 40, 20));
+        jPanelSignUp.add(jLbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 40, 20));
 
         jLbStarEmail.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarEmail.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarEmail.setText("*");
         jLbStarEmail.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 30, 30));
+        jPanelSignUp.add(jLbStarEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 30, 30));
 
         jPasswordSignUp.setBackground(new java.awt.Color(0, 0, 0));
         jPasswordSignUp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -340,7 +359,7 @@ public class Register extends javax.swing.JFrame {
                 jPasswordSignUpActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jPasswordSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 230, 30));
+        jPanelSignUp.add(jPasswordSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 230, 30));
 
         jPasswordConfirmPassSignup.setBackground(new java.awt.Color(0, 0, 0));
         jPasswordConfirmPassSignup.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -355,22 +374,22 @@ public class Register extends javax.swing.JFrame {
                 jPasswordConfirmPassSignupFocusLost(evt);
             }
         });
-        jPanelSignUp.add(jPasswordConfirmPassSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 230, 30));
+        jPanelSignUp.add(jPasswordConfirmPassSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 230, 30));
 
         jLbConfirmPassWord.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbConfirmPassWord.setForeground(new java.awt.Color(255, 255, 255));
         jLbConfirmPassWord.setText("Comfirm Password");
-        jPanelSignUp.add(jLbConfirmPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 100, 20));
+        jPanelSignUp.add(jLbConfirmPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 100, 20));
 
         jLbStarConfirmPass.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbStarConfirmPass.setForeground(new java.awt.Color(0, 204, 204));
         jLbStarConfirmPass.setText("*");
         jLbStarConfirmPass.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanelSignUp.add(jLbStarConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 30, 30));
+        jPanelSignUp.add(jLbStarConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 30, 30));
 
         jDateChooserBirthDate.setBackground(new java.awt.Color(0, 0, 0));
         jDateChooserBirthDate.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelSignUp.add(jDateChooserBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 230, 30));
+        jPanelSignUp.add(jDateChooserBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 230, 30));
 
         jButtonSignUp.setBackground(new java.awt.Color(0, 255, 255));
         jButtonSignUp.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
@@ -381,14 +400,14 @@ public class Register extends javax.swing.JFrame {
                 jButtonSignUpActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jButtonSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 80, -1));
+        jPanelSignUp.add(jButtonSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 80, -1));
 
         jRadioButtonGenderFemale.setBackground(new java.awt.Color(0, 0, 0));
         jRadioButtonGenderFemale.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jRadioButtonGenderFemale.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonGenderFemale.setText("Female");
         jRadioButtonGenderFemale.setDisplayedMnemonicIndex(0);
-        jPanelSignUp.add(jRadioButtonGenderFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 70, -1));
+        jPanelSignUp.add(jRadioButtonGenderFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 70, -1));
 
         jRadioButtonGenderMale.setBackground(new java.awt.Color(0, 0, 0));
         jRadioButtonGenderMale.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -404,9 +423,29 @@ public class Register extends javax.swing.JFrame {
                 jRadioButtonGenderMaleActionPerformed(evt);
             }
         });
-        jPanelSignUp.add(jRadioButtonGenderMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        jPanelSignUp.add(jRadioButtonGenderMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
 
-        jPanelBackground.add(jPanelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 680, 480));
+        jLabelPictureProfileRegister.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
+        jLabelPictureProfileRegister.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPictureProfileRegister.setText("Picture Profile: ");
+        jPanelSignUp.add(jLabelPictureProfileRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
+
+        jButtonChooseFileForUpload.setBackground(new java.awt.Color(51, 0, 153));
+        jButtonChooseFileForUpload.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jButtonChooseFileForUpload.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonChooseFileForUpload.setText("Choose File");
+        jButtonChooseFileForUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseFileForUploadActionPerformed(evt);
+            }
+        });
+        jPanelSignUp.add(jButtonChooseFileForUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 100, -1));
+
+        jLabelPartPictureUserUpload.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
+        jLabelPartPictureUserUpload.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelSignUp.add(jLabelPartPictureUserUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 340, 20));
+
+        jPanelBackground.add(jPanelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 680, 490));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\January\\Documents\\NetBeansProjects\\Project\\icon\\backgroung.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -465,12 +504,14 @@ public class Register extends javax.swing.JFrame {
     private void jTfFirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTfFirstNameFocusGained
         // เมื่อคลิกให้ Name เป็นเป็นว่างเปล่า
         jTfFirstName.setText(" ");
+        jTfFirstName.setForeground(new java.awt.Color(255, 255, 255));
         jTfFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTfFirstNameFocusGained
 
     private void jTextFieldSurnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSurnameFocusGained
         // TODO add your handling code here:
         jTextFieldSurname.setText(" ");
+        jTextFieldSurname.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldSurname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldSurnameFocusGained
 
@@ -487,6 +528,7 @@ public class Register extends javax.swing.JFrame {
     private void jTextFieldIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdFocusGained
         // TODO add your handling code here:
         jTextFieldId.setText(" ");
+        jTextFieldId.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldIdFocusGained
 
@@ -498,6 +540,7 @@ public class Register extends javax.swing.JFrame {
     private void jTextFieldConDiseaseFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldConDiseaseFocusGained
         // TODO add your handling code here:
         jTextFieldConDisease.setText(" ");
+        jTextFieldConDisease.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldConDisease.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldConDiseaseFocusGained
 
@@ -509,6 +552,7 @@ public class Register extends javax.swing.JFrame {
     private void jTextFieldTelophoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelophoneFocusGained
         // TODO add your handling code here:
         jTextFieldTelophone.setText(" ");
+        jTextFieldTelophone.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTelophone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldTelophoneFocusGained
 
@@ -520,6 +564,7 @@ public class Register extends javax.swing.JFrame {
     private void jTextFieldEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEmailFocusGained
         // TODO add your handling code here:
         jTextFieldEmail.setText(" ");
+        jTextFieldEmail.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldEmailFocusGained
 
@@ -531,6 +576,7 @@ public class Register extends javax.swing.JFrame {
     private void jPasswordSignUpFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordSignUpFocusGained
         // TODO add your handling code here:
         jPasswordSignUp.setText("");
+        jPasswordSignUp.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordSignUp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jPasswordSignUpFocusGained
 
@@ -542,6 +588,7 @@ public class Register extends javax.swing.JFrame {
     private void jPasswordConfirmPassSignupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordConfirmPassSignupFocusGained
         // TODO add your handling code here:
         jPasswordConfirmPassSignup.setText("");
+        jPasswordConfirmPassSignup.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordConfirmPassSignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jPasswordConfirmPassSignupFocusGained
 
@@ -552,34 +599,68 @@ public class Register extends javax.swing.JFrame {
 
     private void jButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignUpActionPerformed
         // TODO add your handling code here:
-        String name;
-        String surname;
-        String gender;
+        String name="";
+        String surname="";
+        String gender="";
         Date birthDate;
-        String conDisease;
-        String email;
-        String tel;
-        String deptID;
-        String oldPass;
-        String newPass;
-        StringBuffer sb;
-        String position;
+        String conDisease="";
+        String email="";
+        String tel="";
+        String deptID="";
+        String oldPass="";
+        String newPass="";
+        StringBuffer sb=null;
+        String position="";
+        String telophone="";
+        //(String firstName, String lastName, String gender, Date birthday, String disease, String email,
+                               //String tel, String deptId, StringBuffer pass, String position)
         
         name = jTfFirstName.getText();
         surname = jTextFieldSurname.getText();
+        //jRadio Gender
         if(jRadioButtonGenderMale.getDisplayedMnemonicIndex()==-1)
             gender = "male";
         else if(jRadioButtonGenderFemale.getDisplayedMnemonicIndex()==0)
             gender = "female";
         else
-            JOptionPane.showMessageDialog(null,"Pleas select gender!","Check Gender",JOptionPane.WARNING_MESSAGE);
-        
+            JOptionPane.showMessageDialog(null,"Pleas select gender!","Check Gender",
+                    JOptionPane.WARNING_MESSAGE);
+        //-----------------------------------------------------------------------------------------------------------
         birthDate = jDateChooserBirthDate.getDate();
+        //Position
+        if(jComboBoxPosition.getSelectedIndex()==0){
+            position = "Student";
+        }else if(jComboBoxPosition.getSelectedIndex()==1){
+            position = "Professor and Personal";
+        }else if(jComboBoxPosition.getSelectedIndex()==2){
+            position = "Technician";
+        }else if(jComboBoxPosition.getSelectedIndex()==3){
+            position = "Official";
+        }
+        //----------------------------------------------------------------------------------------------------------
+        deptID = jTextFieldId.getText();
         conDisease = jTextFieldConDisease.getText();
+        telophone = jTextFieldTelophone.getText();
         email = jTextFieldEmail.getText();
         oldPass = jPasswordSignUp.getText();
         newPass = jPasswordConfirmPassSignup.getText();
-        password(oldPass,newPass);
+        sb = rs.encocdMd5(password(oldPass,newPass));
+        boolean checkEmail =rs.connectDBforCheckEmail(email);
+        boolean checkId = rs.connectDBforCheckId(deptID);
+        
+        if(checkEmail == true && checkId==true){
+//            au.insertDataUser(name, surname, gender, birthDate, conDisease, email,telophone ,deptID, sb, position);
+        }else if(checkEmail == false && checkId==true){
+            JOptionPane.showMessageDialog(null,"This email is already registered","Check Email",
+                    JOptionPane.WARNING_MESSAGE);
+        }else if(checkEmail == true && checkId==false){
+            JOptionPane.showMessageDialog(null,"This Id is already registered","Check ID",
+                    JOptionPane.WARNING_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null,"This email and Id are already registered",
+                    "Check Email&Id",JOptionPane.WARNING_MESSAGE);
+        }
+   
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
     private void jRadioButtonGenderMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenderMaleActionPerformed
@@ -590,22 +671,36 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonGenderMaleFocusGained
 
+    private void jButtonChooseFileForUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseFileForUploadActionPerformed
+        // TODO add your handling code here:
+        JFileChooser file = new JFileChooser();
+        String userhome = System.getProperty("user.home");
+        file.setCurrentDirectory(new File(userhome));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "gif","png");
+        file.addChoosableFileFilter(filter);
+        int result = file.showSaveDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            jLabelPartPictureUserUpload.setText(path);
+        
+        }else if(result == JFileChooser.CANCEL_OPTION){
+            jLabelPartPictureUserUpload.setText("No File Select");
+        }
+    }//GEN-LAST:event_jButtonChooseFileForUploadActionPerformed
+
      public String password(String oldPass,String newPass){//พาสเวิร์ดที่ user ใส่มาสองรอบต้องเป็นตัวเดียวกัน
          String password="";
-        if(oldPass==newPass){
+        if(oldPass.equals(newPass)){
            password = newPass;
         }else{
-           JOptionPane.showMessageDialog(null,"These passwords don't match. Try again?","Check Password",JOptionPane.WARNING_MESSAGE); 
+           JOptionPane.showMessageDialog(null,"These passwords don't match. Try again?",
+                   "Check Password",JOptionPane.WARNING_MESSAGE); 
 //           jPasswordConfirmPassSignup.JComponent.AccessibleJComponent.AccessibleFocusHandler.focusGained(FocusEvent event){;
         }
         return password;
     }
         
-//        jTFSearch.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                jTFSearchActionPerformed(evt);
-//            }
-//        });
     /**
      * @param args the command line arguments
      */
@@ -623,30 +718,34 @@ public class Register extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new RegisterGui().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButtonChooseFileForUpload;
     private javax.swing.JButton jButtonSignUp;
     private javax.swing.JComboBox<String> jComboBoxPosition;
     private com.toedter.calendar.JDateChooser jDateChooserBirthDate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelPartPictureUserUpload;
+    private javax.swing.JLabel jLabelPictureProfileRegister;
     private javax.swing.JLabel jLabelStarLN;
     private javax.swing.JLabel jLbConfirmPassWord;
     private javax.swing.JLabel jLbCongenitialDisease;
