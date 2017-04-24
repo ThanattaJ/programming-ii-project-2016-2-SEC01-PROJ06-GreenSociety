@@ -660,6 +660,7 @@ public class RegisterGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"This email and Id are already registered",
                     "Check Email&Id",JOptionPane.WARNING_MESSAGE);
         }
+        //ccdfsddsdawdwde
    
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
