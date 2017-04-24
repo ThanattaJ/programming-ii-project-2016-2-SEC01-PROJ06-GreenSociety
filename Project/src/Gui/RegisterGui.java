@@ -8,13 +8,17 @@ package Gui;
 import Register.Register;
 import java.awt.Image;
 import java.io.File;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Scanner;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.NumberFormatter;
 
 /**
  *
@@ -23,13 +27,52 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class RegisterGui extends javax.swing.JFrame {
     private ButtonGroup buttonGroup = new ButtonGroup();
     private Register rs = new Register();
+    private JFormattedTextField jFormatTextFieldForId;
     /**
      * Creates new form Register
      */
     public RegisterGui() {
         initComponents();
+        jFormattedTextFieldForId();
+    }
+    
+    public void jFormattedTextFieldForId(){
+        NumberFormat format = NumberFormat.getInstance();
+        DecimalFormat phoneDecimalFmt = new DecimalFormat("###########");
+        NumberFormatter formatter = new NumberFormatter(phoneDecimalFmt);
+        formatter.setValueClass(Long.class);
+        formatter.setAllowsInvalid(false);
+        // If you want the value to be committed on each keystroke instead of focus lost
+        formatter.setCommitsOnValidEdit(true);
+        jFormatTextFieldForId = new JFormattedTextField(formatter);
+        
+        jFormatTextFieldForId.setBackground(new java.awt.Color(0, 0, 0));
+        jFormatTextFieldForId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
+        jFormatTextFieldForId.setForeground(new java.awt.Color(102, 102, 102));
+        jFormatTextFieldForId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jFormatTextFieldForId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jFormatTextFieldForIdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFormatTextFieldForIdFocusLost(evt);
+            }
+        });
+        jPanelSignUp.add(jFormatTextFieldForId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 230, 30));
         
     }
+    
+    private void jFormatTextFieldForIdFocusGained(java.awt.event.FocusEvent evt) {                                              
+        // TODO add your handling code here:
+        jFormatTextFieldForId.setText("");
+        jFormatTextFieldForId.setForeground(new java.awt.Color(255, 255, 255));
+        jFormatTextFieldForId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
+    }                                             
+
+    private void jFormatTextFieldForIdFocusLost(java.awt.event.FocusEvent evt) {                                            
+        // TODO add your handling code here:
+        jFormatTextFieldForId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    } 
     
     public ImageIcon resizeImage(String imagePath){
         String pathImg = imagePath;
@@ -72,7 +115,6 @@ public class RegisterGui extends javax.swing.JFrame {
         jLbStarPassword = new javax.swing.JLabel();
         jLbPosition = new javax.swing.JLabel();
         jLbStarPosition = new javax.swing.JLabel();
-        jTextFieldId = new javax.swing.JTextField();
         jLbCongenitialDisease = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jLbTelophone = new javax.swing.JLabel();
@@ -254,26 +296,6 @@ public class RegisterGui extends javax.swing.JFrame {
         jLbStarPosition.setText("*");
         jLbStarPosition.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanelSignUp.add(jLbStarPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 30, 30));
-
-        jTextFieldId.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
-        jTextFieldId.setForeground(new java.awt.Color(102, 102, 102));
-        jTextFieldId.setText("591305000XX");
-        jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jTextFieldId.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldIdFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldIdFocusLost(evt);
-            }
-        });
-        jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIdActionPerformed(evt);
-            }
-        });
-        jPanelSignUp.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 230, 30));
 
         jLbCongenitialDisease.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbCongenitialDisease.setForeground(new java.awt.Color(255, 255, 255));
@@ -483,11 +505,19 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jTextFieldSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSurnameActionPerformed
         // TODO add your handling code here:
+        String surname = jTextFieldSurname.getText();
+        int lengthSurname = surname.length();
+        String []charSurname = new String[lengthSurname];
+        for(int i=0;i<10;i++){
+            for(int j=0;j<lengthSurname;j++){
+                charSurname[j]=surname.substring(j);
+                String temp = ""+i;
+                if(charSurname[j]==temp)
+                    JOptionPane.showMessageDialog(null,"Don't input. Try again?",
+                   "Check Password",JOptionPane.WARNING_MESSAGE); 
+            }
+        }
     }//GEN-LAST:event_jTextFieldSurnameActionPerformed
-
-    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdActionPerformed
 
     private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
         // TODO add your handling code here:
@@ -503,14 +533,14 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jTfFirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTfFirstNameFocusGained
         // เมื่อคลิกให้ Name เป็นเป็นว่างเปล่า
-        jTfFirstName.setText(" ");
+        jTfFirstName.setText("");
         jTfFirstName.setForeground(new java.awt.Color(255, 255, 255));
         jTfFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTfFirstNameFocusGained
 
     private void jTextFieldSurnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSurnameFocusGained
         // TODO add your handling code here:
-        jTextFieldSurname.setText(" ");
+        jTextFieldSurname.setText("");
         jTextFieldSurname.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldSurname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldSurnameFocusGained
@@ -524,18 +554,6 @@ public class RegisterGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTfFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jTfFirstNameFocusLost
-
-    private void jTextFieldIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdFocusGained
-        // TODO add your handling code here:
-        jTextFieldId.setText(" ");
-        jTextFieldId.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
-    }//GEN-LAST:event_jTextFieldIdFocusGained
-
-    private void jTextFieldIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdFocusLost
-        // TODO add your handling code here:
-        jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_jTextFieldIdFocusLost
 
     private void jTextFieldConDiseaseFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldConDiseaseFocusGained
         // TODO add your handling code here:
@@ -638,7 +656,7 @@ public class RegisterGui extends javax.swing.JFrame {
             position = "Official";
         }
         //----------------------------------------------------------------------------------------------------------
-        deptID = jTextFieldId.getText();
+//        deptID = jTextFieldId.getText();
         conDisease = jTextFieldConDisease.getText();
         telophone = jTextFieldTelophone.getText();
         email = jTextFieldEmail.getText();
@@ -697,7 +715,7 @@ public class RegisterGui extends javax.swing.JFrame {
         }else{
            JOptionPane.showMessageDialog(null,"These passwords don't match. Try again?",
                    "Check Password",JOptionPane.WARNING_MESSAGE); 
-//           jPasswordConfirmPassSignup.JComponent.AccessibleJComponent.AccessibleFocusHandler.focusGained(FocusEvent event){;
+           jPasswordSignUp.requestFocusInWindow();
         }
         return password;
     }
@@ -778,7 +796,6 @@ public class RegisterGui extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldConDisease;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldSurname;
     private javax.swing.JTextField jTextFieldTelophone;
     private javax.swing.JTextField jTfFirstName;
