@@ -5,6 +5,8 @@
         <group>
             <file>file:/D:/ProjectConnectGit/Project/src/Gui/HistoryGUI.java</file>
             <file>file:/D:/ProjectConnectGit/Project/src/Gui/RepairingForAdmin.java</file>
+            <file>file:/D:/ProjectConnectGit/Project/src/Gui/SupportGUI.java</file>
+            <file>file:/D:/ProjectConnectGit/Project/src/Gui/RepairingForUser.java</file>
             <file>file:/D:/ProjectConnectGit/Project/src/Gui/RegisterGui.java</file>
         </group>
     </open-files>

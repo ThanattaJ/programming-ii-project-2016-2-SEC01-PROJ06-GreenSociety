@@ -44,94 +44,96 @@ public class HistoryGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel5 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanelHistoryGuiUser = new javax.swing.JPanel();
+        jPanelNotic = new javax.swing.JPanel();
+        jSeparatorHistoryUser = new javax.swing.JSeparator();
+        jLabelNoticNumber = new javax.swing.JLabel();
+        jLabelNoticIcon = new javax.swing.JLabel();
+        jLabelNoticNumber1 = new javax.swing.JLabel();
+        jPanelHeaderHistory = new javax.swing.JPanel();
+        jLabelSociety = new javax.swing.JLabel();
         jTFSearch = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel12 = new javax.swing.JLabel();
+        jSeparatorUnderSearch = new javax.swing.JSeparator();
+        jLabelGreen = new javax.swing.JLabel();
         jBTSearch = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanelUserProFile = new javax.swing.JPanel();
+        jLabelNameSurnameUser = new javax.swing.JLabel();
+        jLabelPositionuser = new javax.swing.JLabel();
+        jLabelIconUser = new javax.swing.JLabel();
+        jPanelSideBarUserIconMenu = new javax.swing.JPanel();
+        jLabelIconProfile = new javax.swing.JLabel();
+        jLabelIconBike = new javax.swing.JLabel();
+        jLabelIconMenu = new javax.swing.JLabel();
+        jPanelUserProbileLightBule = new javax.swing.JPanel();
+        jPanelSideBarLightBule = new javax.swing.JPanel();
+        jPanelSideBarBule = new javax.swing.JPanel();
+        jPanelSideBarMenu = new javax.swing.JPanel();
+        jLabelNewMenuHistory = new javax.swing.JLabel();
+        jLabelRepairingMenuHistory = new javax.swing.JLabel();
+        jLabelCanCounterMenuHistory = new javax.swing.JLabel();
+        jLabelBikeSharingMenuHistory = new javax.swing.JLabel();
+        jLabelHistoryMenuHistory = new javax.swing.JLabel();
+        jLabelProfileMenuHistory = new javax.swing.JLabel();
+        jLabelTimerMenuHistory = new javax.swing.JLabel();
+        jLabelSupportMenuHistory = new javax.swing.JLabel();
+        jLabelMenuHistory = new javax.swing.JLabel();
+        jLabelIconDownHistory = new javax.swing.JLabel();
+        jLabelDotBuleHistory = new javax.swing.JLabel();
+        jPanelHeadHistory = new javax.swing.JPanel();
+        jLabelHistoryText = new javax.swing.JLabel();
+        jPanelRepairHistoryUser = new javax.swing.JPanel();
+        jLabelRepairText = new javax.swing.JLabel();
+        jScrollPaneHistoryUser = new javax.swing.JScrollPane();
         jTARapair = new javax.swing.JTextArea();
         jPnBorrow = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabelBurrowText = new javax.swing.JLabel();
+        jScrollPaneBarrow = new javax.swing.JScrollPane();
         jTABorrowDate = new javax.swing.JTextArea();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanelReturn = new javax.swing.JPanel();
+        jLabelReturnText = new javax.swing.JLabel();
+        jScrollPaneReturn = new javax.swing.JScrollPane();
         jTAReturnDate = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(25, 41, 65));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelHistoryGuiUser.setBackground(new java.awt.Color(25, 41, 65));
+        jPanelHistoryGuiUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel9.setBackground(new java.awt.Color(13, 24, 35));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelNotic.setBackground(new java.awt.Color(13, 24, 35));
+        jPanelNotic.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator1.setBackground(new java.awt.Color(55, 200, 255));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel9.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 10, 60));
+        jSeparatorHistoryUser.setBackground(new java.awt.Color(55, 200, 255));
+        jSeparatorHistoryUser.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelNotic.add(jSeparatorHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 10, 60));
 
-        jLabel11.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("1");
-        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 20, 30));
+        jLabelNoticNumber.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticNumber.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNoticNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNoticNumber.setText("1");
+        jPanelNotic.add(jLabelNoticNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 20, 30));
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/circle.png"))); // NOI18N
-        jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, -6, 70, 60));
+        jLabelNoticIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNoticIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/notifications-button.png"))); // NOI18N
+        jPanelNotic.add(jLabelNoticIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/notifications-button.png"))); // NOI18N
-        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        jLabelNoticNumber1.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticNumber1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNoticNumber1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNoticNumber1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/circle.png"))); // NOI18N
+        jPanelNotic.add(jLabelNoticNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 20, 30));
 
-        jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 730, 60));
+        jPanelHistoryGuiUser.add(jPanelNotic, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 730, 60));
 
-        jPanel8.setBackground(new java.awt.Color(13, 24, 35));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelHeaderHistory.setBackground(new java.awt.Color(13, 24, 35));
+        jPanelHeaderHistory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Leelawadee", 0, 28)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("SOCIETY");
-        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 140, 50));
+        jLabelSociety.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelSociety.setFont(new java.awt.Font("Leelawadee", 0, 28)); // NOI18N
+        jLabelSociety.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSociety.setText("SOCIETY");
+        jLabelSociety.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelHeaderHistory.add(jLabelSociety, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 140, 50));
 
         jTFSearch.setBackground(new java.awt.Color(13, 24, 35));
         jTFSearch.setFont(new java.awt.Font("Leelawadee UI", 0, 20)); // NOI18N
@@ -148,16 +150,16 @@ public class HistoryGUI extends javax.swing.JFrame {
                 jTFSearchActionPerformed(evt);
             }
         });
-        jPanel8.add(jTFSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 120, 30));
-        jPanel8.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 120, 40));
+        jPanelHeaderHistory.add(jTFSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 120, 30));
+        jPanelHeaderHistory.add(jSeparatorUnderSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 120, 40));
 
-        jLabel12.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel12.setFont(new java.awt.Font("Leelawadee", 0, 28)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("GREEN");
-        jLabel12.setToolTipText("");
-        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 50));
+        jLabelGreen.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelGreen.setFont(new java.awt.Font("Leelawadee", 0, 28)); // NOI18N
+        jLabelGreen.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelGreen.setText("GREEN");
+        jLabelGreen.setToolTipText("");
+        jLabelGreen.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelHeaderHistory.add(jLabelGreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 50));
 
         jBTSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/magnifying-glass.png"))); // NOI18N
         jBTSearch.setContentAreaFilled(false);
@@ -166,186 +168,186 @@ public class HistoryGUI extends javax.swing.JFrame {
                 jBTSearchActionPerformed(evt);
             }
         });
-        jPanel8.add(jBTSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+        jPanelHeaderHistory.add(jBTSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
 
-        jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 860, 60));
+        jPanelHistoryGuiUser.add(jPanelHeaderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 860, 60));
 
-        jPanel3.setBackground(new java.awt.Color(19, 175, 248));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelUserProFile.setBackground(new java.awt.Color(19, 175, 248));
+        jPanelUserProFile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Leelawadee", 0, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(13, 24, 35));
-        jLabel4.setText("NAME  SURNAME");
-        jLabel4.setToolTipText("");
-        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 50));
+        jLabelNameSurnameUser.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNameSurnameUser.setFont(new java.awt.Font("Leelawadee", 0, 16)); // NOI18N
+        jLabelNameSurnameUser.setForeground(new java.awt.Color(13, 24, 35));
+        jLabelNameSurnameUser.setText("NAME  SURNAME");
+        jLabelNameSurnameUser.setToolTipText("");
+        jLabelNameSurnameUser.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelUserProFile.add(jLabelNameSurnameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 50));
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Student");
-        jLabel2.setToolTipText("");
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 50));
+        jLabelPositionuser.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelPositionuser.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelPositionuser.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPositionuser.setText("Student");
+        jLabelPositionuser.setToolTipText("");
+        jLabelPositionuser.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelUserProFile.add(jLabelPositionuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 50));
 
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/man.png"))); // NOI18N
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        jLabelIconUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/man.png"))); // NOI18N
+        jPanelUserProFile.add(jLabelIconUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
-        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 200, 60));
+        jPanelHistoryGuiUser.add(jPanelUserProFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 200, 60));
 
-        jPanel1.setBackground(new java.awt.Color(19, 175, 248));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelSideBarUserIconMenu.setBackground(new java.awt.Color(19, 175, 248));
+        jPanelSideBarUserIconMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/menu.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 50, 30));
+        jLabelIconProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/profile-user.png"))); // NOI18N
+        jPanelSideBarUserIconMenu.add(jLabelIconProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 50, 40));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/bike.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 40));
+        jLabelIconBike.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconBike.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/bike.png"))); // NOI18N
+        jPanelSideBarUserIconMenu.add(jLabelIconBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 40));
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/profile-user.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 50, -1));
+        jLabelIconMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/menu.png"))); // NOI18N
+        jPanelSideBarUserIconMenu.add(jLabelIconMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 50, 30));
 
-        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 540));
+        jPanelHistoryGuiUser.add(jPanelSideBarUserIconMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 540));
 
-        jPanel4.setBackground(new java.awt.Color(55, 200, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 210, 60));
+        jPanelUserProbileLightBule.setBackground(new java.awt.Color(55, 200, 255));
+        jPanelUserProbileLightBule.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelHistoryGuiUser.add(jPanelUserProbileLightBule, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 210, 60));
 
-        jPanel2.setBackground(new java.awt.Color(55, 200, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 540));
+        jPanelSideBarLightBule.setBackground(new java.awt.Color(55, 200, 255));
+        jPanelSideBarLightBule.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelHistoryGuiUser.add(jPanelSideBarLightBule, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 540));
 
-        jPanel6.setBackground(new java.awt.Color(22, 31, 39));
+        jPanelSideBarBule.setBackground(new java.awt.Color(22, 31, 39));
 
-        jPanel7.setBackground(new java.awt.Color(13, 24, 35));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelSideBarMenu.setBackground(new java.awt.Color(13, 24, 35));
+        jPanelSideBarMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel14.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(19, 175, 248));
-        jLabel14.setText("     News");
-        jLabel14.setToolTipText("");
-        jLabel14.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, 20));
+        jLabelNewMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelNewMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelNewMenuHistory.setForeground(new java.awt.Color(19, 175, 248));
+        jLabelNewMenuHistory.setText("     News");
+        jLabelNewMenuHistory.setToolTipText("");
+        jLabelNewMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelNewMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, 20));
 
-        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel16.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("     Bike Repairing");
-        jLabel16.setToolTipText("");
-        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, 20));
+        jLabelRepairingMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelRepairingMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelRepairingMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRepairingMenuHistory.setText("     Bike Repairing");
+        jLabelRepairingMenuHistory.setToolTipText("");
+        jLabelRepairingMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelRepairingMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, 20));
 
-        jLabel17.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel17.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("     Can Counter");
-        jLabel17.setToolTipText("");
-        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, 20));
+        jLabelCanCounterMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelCanCounterMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelCanCounterMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCanCounterMenuHistory.setText("     Can Counter");
+        jLabelCanCounterMenuHistory.setToolTipText("");
+        jLabelCanCounterMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelCanCounterMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, 20));
 
-        jLabel18.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel18.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("     Bike Sharing");
-        jLabel18.setToolTipText("");
-        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 20));
+        jLabelBikeSharingMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelBikeSharingMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelBikeSharingMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelBikeSharingMenuHistory.setText("     Bike Sharing");
+        jLabelBikeSharingMenuHistory.setToolTipText("");
+        jLabelBikeSharingMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelBikeSharingMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 20));
 
-        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel20.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("     History");
-        jLabel20.setToolTipText("");
-        jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 20));
+        jLabelHistoryMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelHistoryMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelHistoryMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHistoryMenuHistory.setText("     History");
+        jLabelHistoryMenuHistory.setToolTipText("");
+        jLabelHistoryMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelHistoryMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 20));
 
-        jLabel21.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel21.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("     PROFILE");
-        jLabel21.setToolTipText("");
-        jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, 30));
+        jLabelProfileMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelProfileMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelProfileMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelProfileMenuHistory.setText("     PROFILE");
+        jLabelProfileMenuHistory.setToolTipText("");
+        jPanelSideBarMenu.add(jLabelProfileMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, 30));
 
-        jLabel22.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel22.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("     Timer");
-        jLabel22.setToolTipText("");
-        jLabel22.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, 20));
+        jLabelTimerMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelTimerMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelTimerMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTimerMenuHistory.setText("     Timer");
+        jLabelTimerMenuHistory.setToolTipText("");
+        jLabelTimerMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelTimerMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, 20));
 
-        jLabel23.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel23.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("     Support");
-        jLabel23.setToolTipText("");
-        jLabel23.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel7.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 20));
+        jLabelSupportMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelSupportMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelSupportMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSupportMenuHistory.setText("     Support");
+        jLabelSupportMenuHistory.setToolTipText("");
+        jLabelSupportMenuHistory.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanelSideBarMenu.add(jLabelSupportMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 20));
 
-        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel19.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("MENU");
-        jLabel19.setToolTipText("");
-        jPanel7.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 50, 30));
+        jLabelMenuHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelMenuHistory.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
+        jLabelMenuHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMenuHistory.setText("MENU");
+        jLabelMenuHistory.setToolTipText("");
+        jPanelSideBarMenu.add(jLabelMenuHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 50, 30));
 
-        jLabel15.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel15.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/chevron-arrow-down.png"))); // NOI18N
-        jLabel15.setToolTipText("");
-        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 40, 30));
+        jLabelIconDownHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelIconDownHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelIconDownHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelIconDownHistory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconDownHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/chevron-arrow-down.png"))); // NOI18N
+        jLabelIconDownHistory.setToolTipText("");
+        jPanelSideBarMenu.add(jLabelIconDownHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 40, 30));
 
-        jLabel24.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel24.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bike_gui/circle_mini.png"))); // NOI18N
-        jLabel24.setToolTipText("");
-        jPanel7.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 40, 40));
+        jLabelDotBuleHistory.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelDotBuleHistory.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabelDotBuleHistory.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDotBuleHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gui/circle_mini.png"))); // NOI18N
+        jLabelDotBuleHistory.setToolTipText("");
+        jPanelSideBarMenu.add(jLabelDotBuleHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 40, 40));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelSideBarBuleLayout = new javax.swing.GroupLayout(jPanelSideBarBule);
+        jPanelSideBarBule.setLayout(jPanelSideBarBuleLayout);
+        jPanelSideBarBuleLayout.setHorizontalGroup(
+            jPanelSideBarBuleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 150, Short.MAX_VALUE)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelSideBarBuleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSideBarBuleLayout.createSequentialGroup()
+                    .addComponent(jPanelSideBarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelSideBarBuleLayout.setVerticalGroup(
+            jPanelSideBarBuleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 480, Short.MAX_VALUE)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+            .addGroup(jPanelSideBarBuleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelSideBarMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 480));
+        jPanelHistoryGuiUser.add(jPanelSideBarBule, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 480));
 
-        jPanel10.setBackground(new java.awt.Color(76, 81, 86));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelHeadHistory.setBackground(new java.awt.Color(76, 81, 86));
+        jPanelHeadHistory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Leelawadee", 0, 22)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("History");
-        jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 180, 50));
+        jLabelHistoryText.setFont(new java.awt.Font("Leelawadee", 0, 22)); // NOI18N
+        jLabelHistoryText.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHistoryText.setText("History");
+        jPanelHeadHistory.add(jLabelHistoryText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 180, 50));
 
-        jPanel5.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 740, 50));
+        jPanelHistoryGuiUser.add(jPanelHeadHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 740, 50));
 
-        jPanel12.setBackground(new java.awt.Color(210, 206, 206));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelRepairHistoryUser.setBackground(new java.awt.Color(210, 206, 206));
+        jPanelRepairHistoryUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel25.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel25.setText("REPAIR");
-        jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 50));
+        jLabelRepairText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
+        jLabelRepairText.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRepairText.setText("REPAIR");
+        jPanelRepairHistoryUser.add(jLabelRepairText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 50));
 
         jTARapair.setBackground(new java.awt.Color(210, 206, 206));
         jTARapair.setColumns(20);
@@ -353,19 +355,19 @@ public class HistoryGUI extends javax.swing.JFrame {
         jTARapair.setForeground(new java.awt.Color(51, 51, 51));
         jTARapair.setRows(5);
         jTARapair.setBorder(null);
-        jScrollPane3.setViewportView(jTARapair);
+        jScrollPaneHistoryUser.setViewportView(jTARapair);
 
-        jPanel12.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
+        jPanelRepairHistoryUser.add(jScrollPaneHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
 
-        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 210, 320));
+        jPanelHistoryGuiUser.add(jPanelRepairHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 210, 320));
 
         jPnBorrow.setBackground(new java.awt.Color(210, 206, 206));
         jPnBorrow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("BORROW");
-        jPnBorrow.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 90, 50));
+        jLabelBurrowText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
+        jLabelBurrowText.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelBurrowText.setText("BORROW");
+        jPnBorrow.add(jLabelBurrowText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 90, 50));
 
         jTABorrowDate.setBackground(new java.awt.Color(210, 206, 206));
         jTABorrowDate.setColumns(20);
@@ -374,20 +376,19 @@ public class HistoryGUI extends javax.swing.JFrame {
         jTABorrowDate.setRows(5);
         jTABorrowDate.setBorder(null);
         jTABorrowDate.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(jTABorrowDate);
-        jTABorrowDate.getAccessibleContext().setAccessibleParent(null);
+        jScrollPaneBarrow.setViewportView(jTABorrowDate);
 
-        jPnBorrow.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
+        jPnBorrow.add(jScrollPaneBarrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
 
-        jPanel5.add(jPnBorrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 210, 320));
+        jPanelHistoryGuiUser.add(jPnBorrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 210, 320));
 
-        jPanel14.setBackground(new java.awt.Color(210, 206, 206));
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelReturn.setBackground(new java.awt.Color(210, 206, 206));
+        jPanelReturn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel26.setText("RETURN");
-        jPanel14.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 50));
+        jLabelReturnText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
+        jLabelReturnText.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelReturnText.setText("RETURN");
+        jPanelReturn.add(jLabelReturnText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 50));
 
         jTAReturnDate.setBackground(new java.awt.Color(210, 206, 206));
         jTAReturnDate.setColumns(20);
@@ -395,13 +396,13 @@ public class HistoryGUI extends javax.swing.JFrame {
         jTAReturnDate.setForeground(new java.awt.Color(51, 51, 51));
         jTAReturnDate.setRows(5);
         jTAReturnDate.setBorder(null);
-        jScrollPane2.setViewportView(jTAReturnDate);
+        jScrollPaneReturn.setViewportView(jTAReturnDate);
 
-        jPanel14.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
+        jPanelReturn.add(jScrollPaneReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
 
-        jPanel5.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 210, 320));
+        jPanelHistoryGuiUser.add(jPanelReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 210, 320));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 540));
+        getContentPane().add(jPanelHistoryGuiUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -467,50 +468,50 @@ public class HistoryGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBTSearch;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel jLabelBikeSharingMenuHistory;
+    private javax.swing.JLabel jLabelBurrowText;
+    private javax.swing.JLabel jLabelCanCounterMenuHistory;
+    private javax.swing.JLabel jLabelDotBuleHistory;
+    private javax.swing.JLabel jLabelGreen;
+    private javax.swing.JLabel jLabelHistoryMenuHistory;
+    private javax.swing.JLabel jLabelHistoryText;
+    private javax.swing.JLabel jLabelIconBike;
+    private javax.swing.JLabel jLabelIconDownHistory;
+    private javax.swing.JLabel jLabelIconMenu;
+    private javax.swing.JLabel jLabelIconProfile;
+    private javax.swing.JLabel jLabelIconUser;
+    private javax.swing.JLabel jLabelMenuHistory;
+    private javax.swing.JLabel jLabelNameSurnameUser;
+    private javax.swing.JLabel jLabelNewMenuHistory;
+    private javax.swing.JLabel jLabelNoticIcon;
+    private javax.swing.JLabel jLabelNoticNumber;
+    private javax.swing.JLabel jLabelNoticNumber1;
+    private javax.swing.JLabel jLabelPositionuser;
+    private javax.swing.JLabel jLabelProfileMenuHistory;
+    private javax.swing.JLabel jLabelRepairText;
+    private javax.swing.JLabel jLabelRepairingMenuHistory;
+    private javax.swing.JLabel jLabelReturnText;
+    private javax.swing.JLabel jLabelSociety;
+    private javax.swing.JLabel jLabelSupportMenuHistory;
+    private javax.swing.JLabel jLabelTimerMenuHistory;
+    private javax.swing.JPanel jPanelHeadHistory;
+    private javax.swing.JPanel jPanelHeaderHistory;
+    private javax.swing.JPanel jPanelHistoryGuiUser;
+    private javax.swing.JPanel jPanelNotic;
+    private javax.swing.JPanel jPanelRepairHistoryUser;
+    private javax.swing.JPanel jPanelReturn;
+    private javax.swing.JPanel jPanelSideBarBule;
+    private javax.swing.JPanel jPanelSideBarLightBule;
+    private javax.swing.JPanel jPanelSideBarMenu;
+    private javax.swing.JPanel jPanelSideBarUserIconMenu;
+    private javax.swing.JPanel jPanelUserProFile;
+    private javax.swing.JPanel jPanelUserProbileLightBule;
     private javax.swing.JPanel jPnBorrow;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JScrollPane jScrollPaneBarrow;
+    private javax.swing.JScrollPane jScrollPaneHistoryUser;
+    private javax.swing.JScrollPane jScrollPaneReturn;
+    private javax.swing.JSeparator jSeparatorHistoryUser;
+    private javax.swing.JSeparator jSeparatorUnderSearch;
     private javax.swing.JTextArea jTABorrowDate;
     private javax.swing.JTextArea jTARapair;
     private javax.swing.JTextArea jTAReturnDate;
