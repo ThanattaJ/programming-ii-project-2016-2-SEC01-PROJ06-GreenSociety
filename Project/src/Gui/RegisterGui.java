@@ -16,6 +16,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.NumberFormatter;
@@ -38,14 +39,18 @@ public class RegisterGui extends javax.swing.JFrame {
     
     public void jFormattedTextFieldForId(){
         NumberFormat format = NumberFormat.getInstance();
-        DecimalFormat phoneDecimalFmt = new DecimalFormat("###########");
-        NumberFormatter formatter = new NumberFormatter(phoneDecimalFmt);
+        DecimalFormat decimalFmt = new DecimalFormat("###########");
+        NumberFormatter formatter = new NumberFormatter(decimalFmt);
         formatter.setValueClass(Long.class);
         formatter.setAllowsInvalid(false);
         // If you want the value to be committed on each keystroke instead of focus lost
         formatter.setCommitsOnValidEdit(true);
         jFormatTextFieldForId = new JFormattedTextField(formatter);
-        
+//        int valueId = (int)jFormatTextFieldForId.getValue();
+//        String temp = valueId+"";
+//        if(temp.length()>11){
+//        
+//        }
         jFormatTextFieldForId.setBackground(new java.awt.Color(0, 0, 0));
         jFormatTextFieldForId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jFormatTextFieldForId.setForeground(new java.awt.Color(102, 102, 102));
@@ -102,7 +107,6 @@ public class RegisterGui extends javax.swing.JFrame {
         jLbLastName = new javax.swing.JLabel();
         jLbDateOfBirth = new javax.swing.JLabel();
         jLabelStarLN = new javax.swing.JLabel();
-        jLbId = new javax.swing.JLabel();
         jComboBoxPosition = new javax.swing.JComboBox<>();
         jLbGender = new javax.swing.JLabel();
         jLbPassWord = new javax.swing.JLabel();
@@ -133,6 +137,17 @@ public class RegisterGui extends javax.swing.JFrame {
         jLabelPictureProfileRegister = new javax.swing.JLabel();
         jButtonChooseFileForUpload = new javax.swing.JButton();
         jLabelPartPictureUserUpload = new javax.swing.JLabel();
+        jLbId = new javax.swing.JLabel();
+        jLabelEmailNotCorrect = new javax.swing.JLabel();
+        jLabelNoticSurname = new javax.swing.JLabel();
+        jLabelifLengthId = new javax.swing.JLabel();
+        jLabelNoticNewPass = new javax.swing.JLabel();
+        jLabelNoticName = new javax.swing.JLabel();
+        jLabelNoticGender = new javax.swing.JLabel();
+        jLabelNoticBirthDate = new javax.swing.JLabel();
+        jLabelNoticPosition = new javax.swing.JLabel();
+        jLabelNoticTel = new javax.swing.JLabel();
+        jLabelNoticOldPass = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,7 +162,7 @@ public class RegisterGui extends javax.swing.JFrame {
         jLbSignUp.setForeground(new java.awt.Color(255, 255, 255));
         jLbSignUp.setText("SignUp");
         jPanelSignUp.add(jLbSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 195, 40));
-        jPanelSignUp.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 640, 20));
+        jPanelSignUp.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 640, 10));
 
         jTextFieldTelophone.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldTelophone.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -205,15 +220,10 @@ public class RegisterGui extends javax.swing.JFrame {
         jLabelStarLN.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanelSignUp.add(jLabelStarLN, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 30, 30));
 
-        jLbId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
-        jLbId.setForeground(new java.awt.Color(255, 255, 255));
-        jLbId.setText("ID");
-        jPanelSignUp.add(jLbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 20, 20));
-
         jComboBoxPosition.setBackground(new java.awt.Color(0, 0, 0));
         jComboBoxPosition.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jComboBoxPosition.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBoxPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "นักศึกษา ", "อาจารย์และบุคลากร ", "ช่าง ", "เจ้าหน้าที่" }));
+        jComboBoxPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "เลือก..", "นักศึกษา ", "อาจารย์และบุคลากร ", "ช่าง ", "เจ้าหน้าที่" }));
         jComboBoxPosition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPositionActionPerformed(evt);
@@ -299,8 +309,8 @@ public class RegisterGui extends javax.swing.JFrame {
 
         jLbCongenitialDisease.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLbCongenitialDisease.setForeground(new java.awt.Color(255, 255, 255));
-        jLbCongenitialDisease.setText("Congenitial Disease");
-        jPanelSignUp.add(jLbCongenitialDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 110, 20));
+        jLbCongenitialDisease.setText("Congenitial Disease (โรคประจำตัว)");
+        jPanelSignUp.add(jLbCongenitialDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 200, 20));
 
         jTextFieldEmail.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
@@ -452,7 +462,7 @@ public class RegisterGui extends javax.swing.JFrame {
         jLabelPictureProfileRegister.setText("Picture Profile: ");
         jPanelSignUp.add(jLabelPictureProfileRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
-        jButtonChooseFileForUpload.setBackground(new java.awt.Color(51, 0, 153));
+        jButtonChooseFileForUpload.setBackground(new java.awt.Color(0, 204, 255));
         jButtonChooseFileForUpload.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
         jButtonChooseFileForUpload.setForeground(new java.awt.Color(255, 255, 255));
         jButtonChooseFileForUpload.setText("Choose File");
@@ -465,7 +475,52 @@ public class RegisterGui extends javax.swing.JFrame {
 
         jLabelPartPictureUserUpload.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jLabelPartPictureUserUpload.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelSignUp.add(jLabelPartPictureUserUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 340, 20));
+        jPanelSignUp.add(jLabelPartPictureUserUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 160, 20));
+
+        jLbId.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
+        jLbId.setForeground(new java.awt.Color(255, 255, 255));
+        jLbId.setText("ID");
+        jPanelSignUp.add(jLbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 20, 20));
+
+        jLabelEmailNotCorrect.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelEmailNotCorrect.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelEmailNotCorrect, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 280, 20));
+
+        jLabelNoticSurname.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticSurname.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 180, 20));
+
+        jLabelifLengthId.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelifLengthId.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelifLengthId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 220, 20));
+
+        jLabelNoticNewPass.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticNewPass.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticNewPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 130, 20));
+
+        jLabelNoticName.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticName.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 180, 20));
+
+        jLabelNoticGender.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticGender.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, 20));
+
+        jLabelNoticBirthDate.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticBirthDate.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 160, 20));
+
+        jLabelNoticPosition.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticPosition.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 180, 20));
+
+        jLabelNoticTel.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticTel.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 170, 20));
+
+        jLabelNoticOldPass.setFont(new java.awt.Font("Leelawadee", 0, 11)); // NOI18N
+        jLabelNoticOldPass.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.add(jLabelNoticOldPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 180, 20));
 
         jPanelBackground.add(jPanelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 680, 490));
 
@@ -621,7 +676,7 @@ public class RegisterGui extends javax.swing.JFrame {
         String surname="";
         String gender="";
         Date birthDate;
-        String conDisease="";
+        String conDisease="null";
         String email="";
         String tel="";
         String deptID="";
@@ -630,9 +685,10 @@ public class RegisterGui extends javax.swing.JFrame {
         StringBuffer sb=null;
         String position="";
         String telophone="";
+        String picture="";
         //(String firstName, String lastName, String gender, Date birthday, String disease, String email,
                                //String tel, String deptId, StringBuffer pass, String position)
-        
+       
         name = jTfFirstName.getText();
         surname = jTextFieldSurname.getText();
         //jRadio Gender
@@ -649,37 +705,58 @@ public class RegisterGui extends javax.swing.JFrame {
         if(jComboBoxPosition.getSelectedIndex()==0){
             position = "Student";
         }else if(jComboBoxPosition.getSelectedIndex()==1){
-            position = "Professor and Personal";
+            position = "Professor";
         }else if(jComboBoxPosition.getSelectedIndex()==2){
             position = "Technician";
         }else if(jComboBoxPosition.getSelectedIndex()==3){
             position = "Official";
         }
         //----------------------------------------------------------------------------------------------------------
-//        deptID = jTextFieldId.getText();
         conDisease = jTextFieldConDisease.getText();
         telophone = jTextFieldTelophone.getText();
         email = jTextFieldEmail.getText();
         oldPass = jPasswordSignUp.getText();
         newPass = jPasswordConfirmPassSignup.getText();
+        deptID = ""+jFormatTextFieldForId.getValue();
         sb = rs.encocdMd5(password(oldPass,newPass));
         boolean checkEmail =rs.connectDBforCheckEmail(email);
         boolean checkId = rs.connectDBforCheckId(deptID);
         
-        if(checkEmail == true && checkId==true){
+        String valueId = ""+jFormatTextFieldForId.getValue();
+        int temp = valueId.length();
+//        if(temp>11){
+//            jLabelifLengthId.setText("Error incorrect");
+//        }
+        
+        if( (name!=null) && (surname!=null) && (gender!=null) 
+                && (birthDate!=null) && (email!=null) && (tel!=null) 
+                && (deptID!=null) && (oldPass!=null) && (newPass!=null) 
+                && (position!=null) && (telophone!=null)){
+            if(checkEmail == true && checkId==true){
 //            au.insertDataUser(name, surname, gender, birthDate, conDisease, email,telophone ,deptID, sb, position);
-        }else if(checkEmail == false && checkId==true){
-            JOptionPane.showMessageDialog(null,"This email is already registered","Check Email",
-                    JOptionPane.WARNING_MESSAGE);
-        }else if(checkEmail == true && checkId==false){
-            JOptionPane.showMessageDialog(null,"This Id is already registered","Check ID",
-                    JOptionPane.WARNING_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null,"This email and Id are already registered",
-                    "Check Email&Id",JOptionPane.WARNING_MESSAGE);
+                }else if(checkEmail == false && checkId==true){
+                    jLabelEmailNotCorrect.setText("This email is already registered");
+                }else if(checkEmail == true && checkId==false){
+                    jLabelNoticSurname.setText("This Id is already registered");
+                }else{
+                    jLabelEmailNotCorrect.setText("This email is already registered");
+                    jLabelNoticSurname.setText("This Id is already registered");
+            }
         }
-        //ccdfsddsdawdwde
-   
+        
+        if(name==null){
+            jLabelNoticName.setText("Name id empty!");
+        }
+        
+        if(surname==null){
+            jLabelNoticSurname.setText("Surname id empty!");
+        }
+        
+        if((jRadioButtonGenderMale.getDisplayedMnemonicIndex()==-1)==false){
+            jLabelNoticSurname.setText("Name id empty!");
+        }
+//        System.out.println("intLength: "+jFormatTextFieldForId.getValue());
+        
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
     private void jRadioButtonGenderMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenderMaleActionPerformed
@@ -702,7 +779,6 @@ public class RegisterGui extends javax.swing.JFrame {
             File selectedFile = file.getSelectedFile();
             String path = selectedFile.getAbsolutePath();
             jLabelPartPictureUserUpload.setText(path);
-        
         }else if(result == JFileChooser.CANCEL_OPTION){
             jLabelPartPictureUserUpload.setText("No File Select");
         }
@@ -763,9 +839,19 @@ public class RegisterGui extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxPosition;
     private com.toedter.calendar.JDateChooser jDateChooserBirthDate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelEmailNotCorrect;
+    private javax.swing.JLabel jLabelNoticBirthDate;
+    private javax.swing.JLabel jLabelNoticGender;
+    private javax.swing.JLabel jLabelNoticName;
+    private javax.swing.JLabel jLabelNoticNewPass;
+    private javax.swing.JLabel jLabelNoticOldPass;
+    private javax.swing.JLabel jLabelNoticPosition;
+    private javax.swing.JLabel jLabelNoticSurname;
+    private javax.swing.JLabel jLabelNoticTel;
     private javax.swing.JLabel jLabelPartPictureUserUpload;
     private javax.swing.JLabel jLabelPictureProfileRegister;
     private javax.swing.JLabel jLabelStarLN;
+    private javax.swing.JLabel jLabelifLengthId;
     private javax.swing.JLabel jLbConfirmPassWord;
     private javax.swing.JLabel jLbCongenitialDisease;
     private javax.swing.JLabel jLbDateOfBirth;
