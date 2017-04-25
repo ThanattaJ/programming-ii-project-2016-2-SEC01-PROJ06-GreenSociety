@@ -464,7 +464,8 @@ public class HistoryGUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
+    //hanbin
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBTSearch;
