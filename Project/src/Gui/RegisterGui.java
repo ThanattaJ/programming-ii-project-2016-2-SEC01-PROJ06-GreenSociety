@@ -5,6 +5,7 @@
  */
 package Gui;
 
+import Register.Authenication;
 import Register.Register;
 import java.awt.Image;
 import java.io.File;
@@ -29,6 +30,7 @@ public class RegisterGui extends javax.swing.JFrame {
     private ButtonGroup buttonGroup = new ButtonGroup();
     private Register rs = new Register();
     private JFormattedTextField jFormatTextFieldForId;
+    private Authenication au = new Authenication();
     /**
      * Creates new form Register
      */
@@ -794,13 +796,20 @@ public class RegisterGui extends javax.swing.JFrame {
         System.out.println("------2");
         boolean checkId = rs.connectDBforCheckId(deptID);
         System.out.println("------3");
+        
+        if(jLabelPartPictureUserUpload.getText()==null){
+            picture = "default";
+        }else{
+            picture = jLabelPartPictureUserUpload.getText();
+        }
+            
 //
-        if((checkName==true) && (checkSurname==true) && (checkGender==true) 
-                && (checkBirthDate==true) && (checkEmailTextField==true) && (checkTelNumber==true) 
-                && (checkIdTextField==true)&& (sb!=null)){
+//        if((checkName==true) && (checkSurname==true) && (checkGender==true) 
+//                && (checkBirthDate==true) && (checkEmailTextField==true) && (checkTelNumber==true) 
+//                && (checkIdTextField==true)&& (sb!=null)){
             if(checkEmail == true && checkId==true){
-//            au.insertDataUser(name, surname, gender, birthDate, conDisease, email,telophone ,deptID, sb, position);
-                System.out.println("sent AuthenSuccess!");
+            au.insertDataUser(name, surname, gender, birthDate, conDisease, email,telophone ,deptID, sb, position);
+                System.out.println("sent Authen Success!");
                 }else if(checkEmail == false && checkId==true){
                     jLabelEmailNotCorrect.setText("This email is already registered");
                 }else if(checkEmail == true && checkId==false){
@@ -809,7 +818,7 @@ public class RegisterGui extends javax.swing.JFrame {
                     jLabelEmailNotCorrect.setText("This email is already registered");
                     jLabelifLengthId.setText("This Id is already registered");
             }
-        }
+//        }
         
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 

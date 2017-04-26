@@ -12,6 +12,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.xml.bind.DatatypeConverter;
@@ -38,10 +39,10 @@ public class Register {
     }
     
     public boolean connectDBforCheckEmail(String email){
-        boolean check=false;
+        boolean check = false;
         int countUserId = 0;
-        String []emailDb;
-       
+        ArrayList<String> listEmail= new ArrayList<String>();
+        
          try{
             
             ConnectDatabase cndb = new ConnectDatabase();
@@ -50,33 +51,22 @@ public class Register {
             
             Statement st = connect.createStatement(); 
             
-            String maxRow = "SELECT COUNT(userId) AS countUserId FROM User";
-            ResultSet rsMaxRow = st.executeQuery(maxRow);
-            
-            while(rsMaxRow.next()){
-                countUserId = rsMaxRow.getInt("countUserId");
-            }
-            emailDb = new String[countUserId];
-            
-            
-            String temp = "SELECT email,deptID FROM `User`";
+            String temp = "SELECT email FROM `User`";
             ResultSet rs = st.executeQuery(temp);
             
             while(rs.next()){
-                for (int i=0; i<emailDb.length ;i++) {
-                    emailDb[i]=rs.getString("email");
-                }
-                
+                listEmail.add(rs.getString("email"));
             }
             
-             for (int i = 0; i < emailDb.length; i++) {
-                if(emailDb[i].equalsIgnoreCase(email))
-                    check=false;
-                else
+            for(int i=0;i<listEmail.size();i++){
+                System.out.println(listEmail.get(i));
+                if(listEmail.get(i).equals(email)==false){
                     check=true;
-                
-             }
-            
+                }else{
+                    check=false;
+                }
+            }        
+    
             try {
 		if(connect != null){
                     connect.close();
@@ -92,13 +82,13 @@ public class Register {
         catch(Exception ex){
             System.out.println(ex);
         }
-        return false; 
+        return check; 
      }
     
     public boolean connectDBforCheckId(String id){
         boolean check=false;
         int countUserId = 0;
-        String []idDb;
+        ArrayList<String> listId= new ArrayList<String>();
         
          try{
             
@@ -108,30 +98,21 @@ public class Register {
             
             Statement st = connect.createStatement(); 
             
-            String maxRow = "SELECT COUNT(userId) AS countUserId FROM User";
-            ResultSet rsMaxRow = st.executeQuery(maxRow);
-            
-            while(rsMaxRow.next()){
-                countUserId = rsMaxRow.getInt("countUserId");
-            }
-            idDb = new String[countUserId];
-            
-            String temp = "SELECT email,deptID FROM `User`";
+            String temp = "SELECT deptID FROM `User`";
             ResultSet rs = st.executeQuery(temp);
-            
+                        
             while(rs.next()){
-                for(int j=0;j<idDb.length;j++){
-                    idDb[j] = rs.getString("deptID");
+                listId.add(rs.getString("deptID"));
+            }
+            
+            for(int i=0;i<listId.size();i++){
+                System.out.println(listId.get(i));
+                if(listId.get(i).equals(id)==false){
+                    check=true;
+                }else{
+                    check=false;
                 }
             }
-            
-            for(int j=0; j < idDb.length; j++){
-                if(idDb[j].equalsIgnoreCase(id))
-                    check=false;
-                else
-                    check=true;
-            }
-             
             
             try {
 		if(connect != null){
@@ -148,7 +129,7 @@ public class Register {
         catch(Exception ex){
             System.out.println(ex);
         }
-        return false; 
+        return check; 
      }
 
     public Register(String name, String surname, String gender, Date birthDate, 
