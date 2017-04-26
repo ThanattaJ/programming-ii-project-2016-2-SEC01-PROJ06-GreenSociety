@@ -41,7 +41,7 @@ public class CanCounter {
         try{
             con = Database.connectDb("ja","jaja036");
             Statement s = con.createStatement();
-            String sql = "SELECT * FROM CP_Transaction WHERE user_id='12345' ORDER BY transactionID DESC LIMIT 1";
+            String sql = "SELECT * FROM CP_Transaction WHERE user_id='"+User.getUserId()+"'ORDER BY transactionID DESC LIMIT 1";
             ResultSet rs = s.executeQuery(sql);
             if(rs.last()){
                 if(rs.getInt("withdraw")!= 0){
