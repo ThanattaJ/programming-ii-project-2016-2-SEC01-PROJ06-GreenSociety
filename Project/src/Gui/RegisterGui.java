@@ -35,6 +35,12 @@ public class RegisterGui extends javax.swing.JFrame {
     public RegisterGui() {
         initComponents();
         jFormattedTextFieldForId();
+        radioGender();
+    }
+    
+    public void radioGender(){
+        jRadioButtonGenderFemale.setActionCommand("-1");
+        jRadioButtonGenderMale.setActionCommand("-1");
     }
     
     public void jFormattedTextFieldForId(){
@@ -97,7 +103,7 @@ public class RegisterGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroupGender = new javax.swing.ButtonGroup();
         jPanelBackground = new javax.swing.JPanel();
         jPanelSignUp = new javax.swing.JPanel();
         jLbSignUp = new javax.swing.JLabel();
@@ -187,7 +193,6 @@ public class RegisterGui extends javax.swing.JFrame {
         jTfFirstName.setBackground(new java.awt.Color(0, 0, 0));
         jTfFirstName.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jTfFirstName.setForeground(new java.awt.Color(102, 102, 102));
-        jTfFirstName.setText("Name");
         jTfFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTfFirstName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -345,7 +350,7 @@ public class RegisterGui extends javax.swing.JFrame {
 
         jTextFieldConDisease.setBackground(new java.awt.Color(0, 0, 0));
         jTextFieldConDisease.setForeground(new java.awt.Color(102, 102, 102));
-        jTextFieldConDisease.setText("ถ้ามี");
+        jTextFieldConDisease.setText("if you have");
         jTextFieldConDisease.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextFieldConDisease.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -376,7 +381,7 @@ public class RegisterGui extends javax.swing.JFrame {
         jPasswordSignUp.setBackground(new java.awt.Color(0, 0, 0));
         jPasswordSignUp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPasswordSignUp.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordSignUp.setText("jPasswordField1");
+        jPasswordSignUp.setText("Oldpassword");
         jPasswordSignUp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPasswordSignUp.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -396,7 +401,7 @@ public class RegisterGui extends javax.swing.JFrame {
         jPasswordConfirmPassSignup.setBackground(new java.awt.Color(0, 0, 0));
         jPasswordConfirmPassSignup.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPasswordConfirmPassSignup.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordConfirmPassSignup.setText("jPasswordField1");
+        jPasswordConfirmPassSignup.setText("Newpassword");
         jPasswordConfirmPassSignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPasswordConfirmPassSignup.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -439,12 +444,18 @@ public class RegisterGui extends javax.swing.JFrame {
         jRadioButtonGenderFemale.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonGenderFemale.setText("Female");
         jRadioButtonGenderFemale.setDisplayedMnemonicIndex(0);
+        jRadioButtonGenderFemale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jRadioButtonGenderFemaleFocusGained(evt);
+            }
+        });
         jPanelSignUp.add(jRadioButtonGenderFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 70, -1));
 
         jRadioButtonGenderMale.setBackground(new java.awt.Color(0, 0, 0));
         jRadioButtonGenderMale.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jRadioButtonGenderMale.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonGenderMale.setText("Male");
+        jRadioButtonGenderMale.setDisplayedMnemonicIndex(1);
         jRadioButtonGenderMale.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jRadioButtonGenderMaleFocusGained(evt);
@@ -588,7 +599,7 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jTfFirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTfFirstNameFocusGained
         // เมื่อคลิกให้ Name เป็นเป็นว่างเปล่า
-        jTfFirstName.setText("");
+//        jTfFirstName.setText("");
         jTfFirstName.setForeground(new java.awt.Color(255, 255, 255));
         jTfFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTfFirstNameFocusGained
@@ -612,7 +623,7 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jTextFieldConDiseaseFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldConDiseaseFocusGained
         // TODO add your handling code here:
-        jTextFieldConDisease.setText(" ");
+        jTextFieldConDisease.setText("");
         jTextFieldConDisease.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldConDisease.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldConDiseaseFocusGained
@@ -624,7 +635,7 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jTextFieldTelophoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelophoneFocusGained
         // TODO add your handling code here:
-        jTextFieldTelophone.setText(" ");
+        jTextFieldTelophone.setText("");
         jTextFieldTelophone.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTelophone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldTelophoneFocusGained
@@ -636,7 +647,7 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jTextFieldEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEmailFocusGained
         // TODO add your handling code here:
-        jTextFieldEmail.setText(" ");
+        jTextFieldEmail.setText("");
         jTextFieldEmail.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
     }//GEN-LAST:event_jTextFieldEmailFocusGained
@@ -672,90 +683,133 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignUpActionPerformed
         // TODO add your handling code here:
-        String name="";
-        String surname="";
-        String gender="";
-        Date birthDate;
-        String conDisease="null";
-        String email="";
-        String tel="";
-        String deptID="";
-        String oldPass="";
-        String newPass="";
+        String name=null;
+        String surname=null;
+        String gender = null;
+        Date birthDate=null;
+        String conDisease=null;
+        String email=null;
+        String tel=null;
+        String deptID=null;
+        String oldPass=null;
+        String newPass=null;
         StringBuffer sb=null;
-        String position="";
-        String telophone="";
-        String picture="";
+        String position=null;
+        String telophone=null;
+        String picture=null;
         //(String firstName, String lastName, String gender, Date birthday, String disease, String email,
                                //String tel, String deptId, StringBuffer pass, String position)
-       
-        name = jTfFirstName.getText();
-        surname = jTextFieldSurname.getText();
-        //jRadio Gender
-        if(jRadioButtonGenderMale.getDisplayedMnemonicIndex()==-1)
-            gender = "male";
-        else if(jRadioButtonGenderFemale.getDisplayedMnemonicIndex()==0)
-            gender = "female";
-        else
-            JOptionPane.showMessageDialog(null,"Pleas select gender!","Check Gender",
-                    JOptionPane.WARNING_MESSAGE);
-        //-----------------------------------------------------------------------------------------------------------
-        birthDate = jDateChooserBirthDate.getDate();
-        //Position
-        if(jComboBoxPosition.getSelectedIndex()==0){
-            position = "Student";
-        }else if(jComboBoxPosition.getSelectedIndex()==1){
-            position = "Professor";
-        }else if(jComboBoxPosition.getSelectedIndex()==2){
-            position = "Technician";
-        }else if(jComboBoxPosition.getSelectedIndex()==3){
-            position = "Official";
+        //jTfFirstName----------------------------------------------------------
+        
+        if(jTfFirstName.getText().equals("")==false){
+            name = jTfFirstName.getText();
+        }else if(jTfFirstName.getText().equals("")){
+            jLabelNoticName.setText("Name is empty!");
         }
-        //----------------------------------------------------------------------------------------------------------
-        conDisease = jTextFieldConDisease.getText();
-        telophone = jTextFieldTelophone.getText();
-        email = jTextFieldEmail.getText();
-        oldPass = jPasswordSignUp.getText();
-        newPass = jPasswordConfirmPassSignup.getText();
-        deptID = ""+jFormatTextFieldForId.getValue();
-        sb = rs.encocdMd5(password(oldPass,newPass));
+        boolean checkName = jTfFirstName.getText().equals("")==false;
+        System.out.println("boolean: "+checkName);
+        System.out.println("------1)CheckName");
+//        jTfSurName----------------------------------------------------------
+        if(jTextFieldSurname.getText().equals("Surname")==false){
+            surname = jTextFieldSurname.getText();
+        }else{
+            jLabelNoticSurname.setText("Surname is empty!");
+        }
+        boolean checkSurname = jTextFieldSurname.getText().equals("Surname");
+        System.out.println("-----2)CheckSurname");
+        //jRadio Gender---------------------------------------------------------
+        if(jRadioButtonGenderMale.getActionCommand().equals("1")){
+            gender = "male";
+        }else if(jRadioButtonGenderFemale.getActionCommand().equals("0")){
+            gender = "female";
+        }else{
+            jLabelNoticGender.setText("Gender is empty!");
+        }
+        boolean checkGender = jRadioButtonGenderMale.getActionCommand().equals("1")==false &&
+                jRadioButtonGenderFemale.getActionCommand().equals("0")==false;
+        System.out.println("-----3)CheckGender");
+        //jDateChooserBirthDate-------------------------------------------------
+        if(jDateChooserBirthDate.getDate()!=null)
+            birthDate = jDateChooserBirthDate.getDate();
+        else
+            jLabelNoticBirthDate.setText("Birthdate is empty!");
+        boolean checkBirthDate = jDateChooserBirthDate.getDate()!=null;
+        System.out.println("----4)CheckBirthDay");
+        //jComboBoxPosition-----------------------------------------------------
+        if(jComboBoxPosition.getSelectedIndex()==0){
+            position = "-";
+        }else if(jComboBoxPosition.getSelectedIndex()==1){
+            position = "Student";
+        }else if(jComboBoxPosition.getSelectedIndex()==2){
+            position = "Professor";
+        }else if(jComboBoxPosition.getSelectedIndex()==3){
+            position = "Technician";
+        }else if(jComboBoxPosition.getSelectedIndex()==4){
+            position = "Official";
+        }else{
+            jLabelNoticPosition.setText("Position is empty!");
+        }
+        System.out.println("----5)CheckPosition");
+        //jFormatTextFieldForId-----------------------------------------------------
+        if(jFormatTextFieldForId.getValue()!=null){
+            String valueId = ""+jFormatTextFieldForId.getValue();
+            int temp = valueId.length();
+            if(temp>11)
+            jLabelifLengthId.setText("Error incorrect");
+        }else{
+            jLabelifLengthId.setText("ID is empty!");
+        }
+        boolean checkIdTextField = jFormatTextFieldForId.getValue()!=null;
+        System.out.println("----6)CheckId");
+        //jLbCongenitialDisease-----------------------------------------------------
+        if(jTextFieldConDisease.getText().equals("if you have")==false)
+            conDisease = jTextFieldConDisease.getText();
+        else
+            conDisease=null;
+//        jTextFieldTelophone----------------------------------------------------------
+        if(jTextFieldTelophone.getText().equals("090xxxxxxx")==false)
+            telophone = jTextFieldTelophone.getText();
+        else
+            jLabelNoticTel.setText("Telophone number is empty!");
+        boolean checkTelNumber = jTextFieldTelophone.getText().equals("090xxxxxxx")==false;
+//        jTextFieldEmail-------------------------------------------------------
+        if(jTextFieldEmail.getText().equals("aaaa@gmail.com")==false)
+            email = jTextFieldEmail.getText();
+        else
+            jLabelEmailNotCorrect.setText("Email is empty!");
+        boolean checkEmailTextField = jTextFieldEmail.getText().equals("aaaa@gmail.com")==false;
+//        jPasswordSignUp-------------------------------------------------------
+        if(jPasswordSignUp.getText().equals("Oldpassword")==false 
+                && jPasswordConfirmPassSignup.getText().equals("Newpassword")==false){
+            oldPass = jPasswordSignUp.getText();
+            newPass = jPasswordConfirmPassSignup.getText();
+            String password = password(oldPass,newPass);
+            sb = rs.encocdMd5(password);
+        }else{
+            jLabelNoticOldPass.setText("Password is empty!");
+        }
+        
+//      
         boolean checkEmail =rs.connectDBforCheckEmail(email);
+        System.out.println("------2");
         boolean checkId = rs.connectDBforCheckId(deptID);
-        
-        String valueId = ""+jFormatTextFieldForId.getValue();
-        int temp = valueId.length();
-//        if(temp>11){
-//            jLabelifLengthId.setText("Error incorrect");
-//        }
-        
-        if( (name!=null) && (surname!=null) && (gender!=null) 
-                && (birthDate!=null) && (email!=null) && (tel!=null) 
-                && (deptID!=null) && (oldPass!=null) && (newPass!=null) 
-                && (position!=null) && (telophone!=null)){
+        System.out.println("------3");
+//
+        if((checkName==true) && (checkSurname==true) && (checkGender==true) 
+                && (checkBirthDate==true) && (checkEmailTextField==true) && (checkTelNumber==true) 
+                && (checkIdTextField==true)&& (sb!=null)){
             if(checkEmail == true && checkId==true){
 //            au.insertDataUser(name, surname, gender, birthDate, conDisease, email,telophone ,deptID, sb, position);
+                System.out.println("sent AuthenSuccess!");
                 }else if(checkEmail == false && checkId==true){
                     jLabelEmailNotCorrect.setText("This email is already registered");
                 }else if(checkEmail == true && checkId==false){
                     jLabelNoticSurname.setText("This Id is already registered");
                 }else{
                     jLabelEmailNotCorrect.setText("This email is already registered");
-                    jLabelNoticSurname.setText("This Id is already registered");
+                    jLabelifLengthId.setText("This Id is already registered");
             }
         }
-        
-        if(name==null){
-            jLabelNoticName.setText("Name id empty!");
-        }
-        
-        if(surname==null){
-            jLabelNoticSurname.setText("Surname id empty!");
-        }
-        
-        if((jRadioButtonGenderMale.getDisplayedMnemonicIndex()==-1)==false){
-            jLabelNoticSurname.setText("Name id empty!");
-        }
-//        System.out.println("intLength: "+jFormatTextFieldForId.getValue());
         
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
@@ -765,6 +819,7 @@ public class RegisterGui extends javax.swing.JFrame {
 
     private void jRadioButtonGenderMaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRadioButtonGenderMaleFocusGained
         // TODO add your handling code here:
+        jRadioButtonGenderMale.setActionCommand("1");
     }//GEN-LAST:event_jRadioButtonGenderMaleFocusGained
 
     private void jButtonChooseFileForUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseFileForUploadActionPerformed
@@ -783,6 +838,11 @@ public class RegisterGui extends javax.swing.JFrame {
             jLabelPartPictureUserUpload.setText("No File Select");
         }
     }//GEN-LAST:event_jButtonChooseFileForUploadActionPerformed
+
+    private void jRadioButtonGenderFemaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRadioButtonGenderFemaleFocusGained
+        // TODO add your handling code here:
+        jRadioButtonGenderFemale.setActionCommand("0");
+    }//GEN-LAST:event_jRadioButtonGenderFemaleFocusGained
 
      public String password(String oldPass,String newPass){//พาสเวิร์ดที่ user ใส่มาสองรอบต้องเป็นตัวเดียวกัน
          String password="";
@@ -833,7 +893,7 @@ public class RegisterGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroupGender;
     private javax.swing.JButton jButtonChooseFileForUpload;
     private javax.swing.JButton jButtonSignUp;
     private javax.swing.JComboBox<String> jComboBoxPosition;
