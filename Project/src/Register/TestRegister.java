@@ -18,8 +18,11 @@ import java.util.Scanner;
  */
 public class TestRegister {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
         Register rg = new Register();
+//        rg.connectDBforCheckEmail("january@hotmail.com");
+        System.out.println(rg.connectDBforCheckEmail("january@hotmail.com"));
+        System.out.println("-----------------------------------------------");
+        System.out.println(rg.connectDBforCheckId("59130500042"));
         
     }        
 }
