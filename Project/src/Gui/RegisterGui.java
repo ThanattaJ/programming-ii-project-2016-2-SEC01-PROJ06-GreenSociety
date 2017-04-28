@@ -442,6 +442,7 @@ public class RegisterGui extends javax.swing.JFrame {
         jPanelSignUp.add(jButtonSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 80, -1));
 
         jRadioButtonGenderFemale.setBackground(new java.awt.Color(0, 0, 0));
+        buttonGroupGender.add(jRadioButtonGenderFemale);
         jRadioButtonGenderFemale.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jRadioButtonGenderFemale.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonGenderFemale.setText("Female");
@@ -454,6 +455,7 @@ public class RegisterGui extends javax.swing.JFrame {
         jPanelSignUp.add(jRadioButtonGenderFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 70, -1));
 
         jRadioButtonGenderMale.setBackground(new java.awt.Color(0, 0, 0));
+        buttonGroupGender.add(jRadioButtonGenderMale);
         jRadioButtonGenderMale.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         jRadioButtonGenderMale.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonGenderMale.setText("Male");
@@ -702,33 +704,35 @@ public class RegisterGui extends javax.swing.JFrame {
         //(String firstName, String lastName, String gender, Date birthday, String disease, String email,
                                //String tel, String deptId, StringBuffer pass, String position)
         //jTfFirstName----------------------------------------------------------
-        
-        if(jTfFirstName.getText().equals("")==false){
+        boolean checkName = jTfFirstName.getText().equals("")==false;
+        if(checkName){
             name = jTfFirstName.getText();
         }else if(jTfFirstName.getText().equals("")){
             jLabelNoticName.setText("Name is empty!");
         }
-        boolean checkName = jTfFirstName.getText().equals("")==false;
+        
         System.out.println("boolean: "+checkName);
         System.out.println("------1)CheckName");
 //        jTfSurName----------------------------------------------------------
-        if(jTextFieldSurname.getText().equals("Surname")==false){
+        boolean checkSurname = jTextFieldSurname.getText().equals("Surname")==false;
+        if(checkSurname){
             surname = jTextFieldSurname.getText();
         }else{
             jLabelNoticSurname.setText("Surname is empty!");
         }
-        boolean checkSurname = jTextFieldSurname.getText().equals("Surname");
+        
         System.out.println("-----2)CheckSurname");
         //jRadio Gender---------------------------------------------------------
+        boolean checkGender = jRadioButtonGenderMale.getActionCommand().equals("1") ||
+                jRadioButtonGenderFemale.getActionCommand().equals("0");
         if(jRadioButtonGenderMale.getActionCommand().equals("1")){
-            gender = "male";
+            gender = "M";
         }else if(jRadioButtonGenderFemale.getActionCommand().equals("0")){
-            gender = "female";
+            gender = "F";
         }else{
             jLabelNoticGender.setText("Gender is empty!");
         }
-        boolean checkGender = jRadioButtonGenderMale.getActionCommand().equals("1")==false &&
-                jRadioButtonGenderFemale.getActionCommand().equals("0")==false;
+        
         System.out.println("-----3)CheckGender");
         //jDateChooserBirthDate-------------------------------------------------
         if(jDateChooserBirthDate.getDate()!=null)
@@ -754,8 +758,8 @@ public class RegisterGui extends javax.swing.JFrame {
         System.out.println("----5)CheckPosition");
         //jFormatTextFieldForId-----------------------------------------------------
         if(jFormatTextFieldForId.getValue()!=null){
-            String valueId = ""+jFormatTextFieldForId.getValue();
-            int temp = valueId.length();
+            deptID= ""+jFormatTextFieldForId.getValue();
+            int temp = deptID.length();
             if(temp>11)
             jLabelifLengthId.setText("Error incorrect");
         }else{
@@ -794,32 +798,33 @@ public class RegisterGui extends javax.swing.JFrame {
 //      
         boolean checkEmail =rs.connectDBforCheckEmail(email);
         System.out.println("------2");
-        boolean checkId = rs.connectDBforCheckId(deptID);
-        System.out.println("------3");
+//        boolean checkId = rs.connectDBforCheckId(deptID);
+//        System.out.println("------3");
         
         if(jLabelPartPictureUserUpload.getText()==null){
             picture = "default";
         }else{
             picture = jLabelPartPictureUserUpload.getText();
         }
+        
+//        String firstName, String lastName, String gender, Date birthday, String disease, String email,
+//            String tel, String deptId, StringBuffer pass, String position,String pathImg
             
 //
-//        if((checkName==true) && (checkSurname==true) && (checkGender==true) 
-//                && (checkBirthDate==true) && (checkEmailTextField==true) && (checkTelNumber==true) 
-//                && (checkIdTextField==true)&& (sb!=null)){
-            if(checkEmail == true && checkId==true){
-            au.insertDataUser(name, surname, gender, birthDate, conDisease, email,telophone ,deptID, sb, position);
+        if((checkName) && (checkSurname) && (checkGender) 
+                && (checkBirthDate) && (checkEmailTextField) && (checkTelNumber) 
+                && (checkIdTextField)&& (sb!=null)){
+            if(checkEmail == true){
+                System.out.println("...connect Authen");
+                    au.insertDataUser(name, surname, gender, birthDate, conDisease, email,
+                    telophone ,deptID, sb, position,picture);
                 System.out.println("sent Authen Success!");
-                }else if(checkEmail == false && checkId==true){
+                }else if(checkEmail == false){
                     jLabelEmailNotCorrect.setText("This email is already registered");
-                }else if(checkEmail == true && checkId==false){
-                    jLabelNoticSurname.setText("This Id is already registered");
-                }else{
-                    jLabelEmailNotCorrect.setText("This email is already registered");
-                    jLabelifLengthId.setText("This Id is already registered");
             }
-//        }
-        
+        }else{
+            System.out.println("sent Authen is false");
+        }
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
     private void jRadioButtonGenderMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenderMaleActionPerformed

@@ -27,12 +27,16 @@ public class HistoryGUI extends javax.swing.JFrame {
         String borrow = h.showBorrowUser(111);
         String returnDate = h.showReturnUser(111);
         String repairDate = h.showRepairUser(222);
+        String actionUser = h.showActionUserFormDatabase(111);
+        String itemUser = h.showItemUserFormDatabase(111);
         jTABorrowDate.setText(borrow);
         jTAReturnDate.setText(returnDate);
-        jTARapair.setText(repairDate);
+        jTAaction.setText(repairDate);
+        jTAaction.setText(actionUser);
+        jTAitem.setText(itemUser);
         jTABorrowDate.setEditable(false);
         jTAReturnDate.setEditable(false);
-        jTARapair.setEditable(false);
+        jTAaction.setEditable(false);
     }
 
     /**
@@ -81,18 +85,23 @@ public class HistoryGUI extends javax.swing.JFrame {
         jLabelDotBuleHistory = new javax.swing.JLabel();
         jPanelHeadHistory = new javax.swing.JPanel();
         jLabelHistoryText = new javax.swing.JLabel();
-        jPanelRepairHistoryUser = new javax.swing.JPanel();
-        jLabelRepairText = new javax.swing.JLabel();
-        jScrollPaneHistoryUser = new javax.swing.JScrollPane();
-        jTARapair = new javax.swing.JTextArea();
+        jPanelHistory = new javax.swing.JPanel();
         jPnBorrow = new javax.swing.JPanel();
         jLabelBurrowText = new javax.swing.JLabel();
         jScrollPaneBarrow = new javax.swing.JScrollPane();
         jTABorrowDate = new javax.swing.JTextArea();
         jPanelReturn = new javax.swing.JPanel();
         jLabelReturnText = new javax.swing.JLabel();
+        jScrollPaneHistoryUser = new javax.swing.JScrollPane();
+        jTAaction = new javax.swing.JTextArea();
+        jPanelRepairHistoryUser = new javax.swing.JPanel();
+        jLabelRepairText = new javax.swing.JLabel();
         jScrollPaneReturn = new javax.swing.JScrollPane();
         jTAReturnDate = new javax.swing.JTextArea();
+        jPanelRepairHistoryUser1 = new javax.swing.JPanel();
+        jLabelRepairText1 = new javax.swing.JLabel();
+        jScrollPaneHistoryUser1 = new javax.swing.JScrollPane();
+        jTAitem = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -341,33 +350,16 @@ public class HistoryGUI extends javax.swing.JFrame {
 
         jPanelHistoryGuiUser.add(jPanelHeadHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 740, 50));
 
-        jPanelRepairHistoryUser.setBackground(new java.awt.Color(210, 206, 206));
-        jPanelRepairHistoryUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelRepairText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
-        jLabelRepairText.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelRepairText.setText("REPAIR");
-        jPanelRepairHistoryUser.add(jLabelRepairText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 50));
-
-        jTARapair.setBackground(new java.awt.Color(210, 206, 206));
-        jTARapair.setColumns(20);
-        jTARapair.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
-        jTARapair.setForeground(new java.awt.Color(51, 51, 51));
-        jTARapair.setRows(5);
-        jTARapair.setBorder(null);
-        jScrollPaneHistoryUser.setViewportView(jTARapair);
-
-        jPanelRepairHistoryUser.add(jScrollPaneHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
-
-        jPanelHistoryGuiUser.add(jPanelRepairHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 210, 320));
+        jPanelHistory.setBackground(new java.awt.Color(210, 206, 206));
+        jPanelHistory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPnBorrow.setBackground(new java.awt.Color(210, 206, 206));
         jPnBorrow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelBurrowText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
         jLabelBurrowText.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelBurrowText.setText("BORROW");
-        jPnBorrow.add(jLabelBurrowText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 90, 50));
+        jLabelBurrowText.setText("TIME");
+        jPnBorrow.add(jLabelBurrowText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 50, 50));
 
         jTABorrowDate.setBackground(new java.awt.Color(210, 206, 206));
         jTABorrowDate.setColumns(20);
@@ -378,17 +370,37 @@ public class HistoryGUI extends javax.swing.JFrame {
         jTABorrowDate.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPaneBarrow.setViewportView(jTABorrowDate);
 
-        jPnBorrow.add(jScrollPaneBarrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
+        jPnBorrow.add(jScrollPaneBarrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 150, 260));
 
-        jPanelHistoryGuiUser.add(jPnBorrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 210, 320));
+        jPanelHistory.add(jPnBorrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, 320));
 
         jPanelReturn.setBackground(new java.awt.Color(210, 206, 206));
         jPanelReturn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelReturnText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
         jLabelReturnText.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelReturnText.setText("RETURN");
-        jPanelReturn.add(jLabelReturnText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 50));
+        jLabelReturnText.setText("ACTION");
+        jPanelReturn.add(jLabelReturnText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 70, 50));
+
+        jTAaction.setBackground(new java.awt.Color(210, 206, 206));
+        jTAaction.setColumns(20);
+        jTAaction.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jTAaction.setForeground(new java.awt.Color(51, 51, 51));
+        jTAaction.setRows(5);
+        jTAaction.setBorder(null);
+        jScrollPaneHistoryUser.setViewportView(jTAaction);
+
+        jPanelReturn.add(jScrollPaneHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 150, 260));
+
+        jPanelHistory.add(jPanelReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 170, 320));
+
+        jPanelRepairHistoryUser.setBackground(new java.awt.Color(210, 206, 206));
+        jPanelRepairHistoryUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelRepairText.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
+        jLabelRepairText.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRepairText.setText("RETURN");
+        jPanelRepairHistoryUser.add(jLabelRepairText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 70, 50));
 
         jTAReturnDate.setBackground(new java.awt.Color(210, 206, 206));
         jTAReturnDate.setColumns(20);
@@ -398,9 +410,31 @@ public class HistoryGUI extends javax.swing.JFrame {
         jTAReturnDate.setBorder(null);
         jScrollPaneReturn.setViewportView(jTAReturnDate);
 
-        jPanelReturn.add(jScrollPaneReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 260));
+        jPanelRepairHistoryUser.add(jScrollPaneReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 150, 260));
 
-        jPanelHistoryGuiUser.add(jPanelReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 210, 320));
+        jPanelHistory.add(jPanelRepairHistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 170, 320));
+
+        jPanelRepairHistoryUser1.setBackground(new java.awt.Color(210, 206, 206));
+        jPanelRepairHistoryUser1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelRepairText1.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
+        jLabelRepairText1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRepairText1.setText("ITEM");
+        jPanelRepairHistoryUser1.add(jLabelRepairText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 50, 50));
+
+        jTAitem.setBackground(new java.awt.Color(210, 206, 206));
+        jTAitem.setColumns(20);
+        jTAitem.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jTAitem.setForeground(new java.awt.Color(51, 51, 51));
+        jTAitem.setRows(5);
+        jTAitem.setBorder(null);
+        jScrollPaneHistoryUser1.setViewportView(jTAitem);
+
+        jPanelRepairHistoryUser1.add(jScrollPaneHistoryUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 150, 260));
+
+        jPanelHistory.add(jPanelRepairHistoryUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 170, 320));
+
+        jPanelHistoryGuiUser.add(jPanelHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 730, 370));
 
         getContentPane().add(jPanelHistoryGuiUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 540));
 
@@ -490,6 +524,7 @@ public class HistoryGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPositionuser;
     private javax.swing.JLabel jLabelProfileMenuHistory;
     private javax.swing.JLabel jLabelRepairText;
+    private javax.swing.JLabel jLabelRepairText1;
     private javax.swing.JLabel jLabelRepairingMenuHistory;
     private javax.swing.JLabel jLabelReturnText;
     private javax.swing.JLabel jLabelSociety;
@@ -497,9 +532,11 @@ public class HistoryGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTimerMenuHistory;
     private javax.swing.JPanel jPanelHeadHistory;
     private javax.swing.JPanel jPanelHeaderHistory;
+    private javax.swing.JPanel jPanelHistory;
     private javax.swing.JPanel jPanelHistoryGuiUser;
     private javax.swing.JPanel jPanelNotic;
     private javax.swing.JPanel jPanelRepairHistoryUser;
+    private javax.swing.JPanel jPanelRepairHistoryUser1;
     private javax.swing.JPanel jPanelReturn;
     private javax.swing.JPanel jPanelSideBarBule;
     private javax.swing.JPanel jPanelSideBarLightBule;
@@ -510,12 +547,14 @@ public class HistoryGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPnBorrow;
     private javax.swing.JScrollPane jScrollPaneBarrow;
     private javax.swing.JScrollPane jScrollPaneHistoryUser;
+    private javax.swing.JScrollPane jScrollPaneHistoryUser1;
     private javax.swing.JScrollPane jScrollPaneReturn;
     private javax.swing.JSeparator jSeparatorHistoryUser;
     private javax.swing.JSeparator jSeparatorUnderSearch;
     private javax.swing.JTextArea jTABorrowDate;
-    private javax.swing.JTextArea jTARapair;
     private javax.swing.JTextArea jTAReturnDate;
+    private javax.swing.JTextArea jTAaction;
+    private javax.swing.JTextArea jTAitem;
     private javax.swing.JTextField jTFSearch;
     // End of variables declaration//GEN-END:variables
     

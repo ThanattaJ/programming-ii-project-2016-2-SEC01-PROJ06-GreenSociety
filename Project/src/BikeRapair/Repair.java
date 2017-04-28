@@ -133,8 +133,8 @@ public class Repair{
         return peairId;
     }
     
-     public void connectDBFromAdminToUser(long itemId){//เพื่อที่ User จะสามารถติดตามดารซ่อมของตัวเองได้ ใส่ itemId
-        
+     public void connectDBFromAdminToUser(long itemId,int user){//เพื่อที่ User จะสามารถติดตามดารซ่อมของตัวเองได้ ใส่ itemId
+         System.out.println("itemId: "+itemId);
          try{
             ConnectDatabase cndb = new ConnectDatabase();
             Connection connect = ConnectDatabase.connectDb("jan", "jan042");
@@ -148,6 +148,7 @@ public class Repair{
             while(rs.next()){
                 count = rs.getInt("countId");
             }
+             System.out.println("coundId: "+count);
             repairStateId = ++count;
             //------------------------------------------------------------------
             //เอาข้อมูลลง DB Repair_State
@@ -157,12 +158,13 @@ public class Repair{
             String sqlRecieving = "\'"+Status(false)+"\'";
             String sqlItemId = "\'"+itemId+"\'";
             
-            String temp2 ="INSERT INTO `Repair_State` "
+            String temp2 ="INSERT INTO Repair_State "
                     + "VALUES"+" ("+sqlid+","
                     + sqlAsking +","
                     + sulRepairing + ","
                     + sqlRecieving + ","
-                    + sqlItemId +")";
+                    + sqlItemId + ","
+                    + user+")";
             
             st.executeUpdate(temp2);
             System.out.println(".insert to Repair_State calling By connectDBFromAdminToUser");
