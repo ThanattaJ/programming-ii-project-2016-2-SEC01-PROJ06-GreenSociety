@@ -1,5 +1,5 @@
 package bike;
-import bike_gui.BikeUser;
+import bike_gui.GreenSociety;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,24 +15,30 @@ public class Timer {
     private SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private String returnDate;
     private String borrowDate;
-    private Notification nf = new Notification();
     private Thread thread = new Thread();
-    private BikeUser bu;
+    private GreenSociety gs;
     private String[] hisBorrow = new String[5];
    
     public Timer() {
         borrowDate = df.format(borrowTime);
     }
-
+    
+    public Timer(Date returnItems,Date current){
+        borrowTime = current;
+        borrowDate = df.format(borrowTime);
+        returnTime = returnItems;
+        returnDate = df.format(returnTime);
+    }
+    
     public Timer(int userDate, int userMonth, int userYear,int userHr, int userMin, int userSec) {
         borrowDate = df.format(borrowTime);
         
         returnTime.setDate(userDate);
+        returnTime.setMonth(userMonth-1);
+        returnTime.setYear(userYear-1900);
         returnTime.setHours(userHr);
         returnTime.setMinutes(userMin);
         returnTime.setSeconds(userSec);
-        returnTime.setMonth(userMonth-1);
-        returnTime.setYear(userYear-1900);
         returnDate = df.format(returnTime);
         
     }
@@ -151,7 +157,7 @@ public class Timer {
             temp += diffDate*24;
         }
         totalHour += temp+diffHour;
-        timeLeft = totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Secounds";
+        timeLeft = totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Seconds";
     }
 	
     public void increaseTime(int hr,int min,int sec){
@@ -174,7 +180,7 @@ public class Timer {
             totalHour += 1;
             totalMin -= 60;
         }
-        timeLeft = totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Secounds";
+        timeLeft = totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Seconds";
           
     }
     
@@ -186,7 +192,7 @@ public class Timer {
         totalHour = 0;
         borrowDate = null;
         returnDate = null;
-        timeLeft =  totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Secounds";
+        timeLeft =  totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Seconds";
         //String = ''; หรือ เก็บ Totaltime = null ตามความเหมาะสม
     }
     
@@ -201,49 +207,56 @@ public class Timer {
             totalMin -= 1;
             totalSeconds = 60;
         }
-        Runnable runnable = new Runnable(){
-            public void run(){
-                for(int i = 0;i<=tmp;i++){
-                    for(int j = 0;j<60;j++){
-                        for(int k = 0;k<60;k++){
-                            
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(Timer.class.getName()).log(Level.SEVERE, null, ex);
+        if(totalHour!= 0 && totalMin != 0 &&totalSeconds != 0){
+            Runnable runnable = new Runnable(){
+                public void run(){
+                    for(int i = 0;i<=tmp;i++){
+                        for(int j = 0;j<60;j++){
+                            for(int k = 0;k<60;k++){
+
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException ex) {
+                                    Logger.getLogger(Timer.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                totalSeconds--;
+                                timeLeft = totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Seconds";
+                                if(notiTimer(obj,totalHour,totalMin,totalSeconds)){
+                                    if(obj instanceof Sharing){
+                                        gs = new GreenSociety();
+                                        gs.notiTime(obj);
+                                    }
+                                }
+                                if(totalSeconds == 0){
+                                    break;
+                                }
                             }
-                            totalSeconds--;
-                            timeLeft = totalHour+" Hours "+totalMin+" Minutes "+totalSeconds+" Secounds";
-                            if(nf.notiTime(obj,totalHour,totalMin,totalSeconds)){
-                                bu = new BikeUser();
-                                int add[]= bu.notiTime();
-                                increaseTime(add[0],add[1],add[2]);
-                            }
-                            System.out.println(timeLeft);
-                            if(totalSeconds == 0){
+                            totalMin--;
+
+                            if(totalMin==-1){
+                                totalMin = 0;
                                 break;
                             }
+                            totalSeconds = 60;
                         }
-                        totalMin--;
-
-                        if(totalMin==-1){
-                            totalMin = 0;
+                        totalHour--;
+                        if(totalHour == -1){
+                            totalHour = 0;
+                            if(totalHour <= 0 && totalMin <= 0 && totalSeconds <= 0){
+                                thread.stop();
+                            }
                             break;
                         }
-                        totalSeconds = 60;
+                        totalMin = 59;
                     }
-                    totalHour--;
-                    if(totalHour == -1){
-                        totalHour = 0;
-                        break;
-                    }
-                    totalMin = 59;
                 }
-            }
-        };
-        thread = new Thread(runnable);
-        thread.start();
-    }
+            };
+            thread = new Thread(runnable);
+            thread.start();
+        }else if (totalHour <= 0 && totalMin <= 0 && totalSeconds <=0){
+            thread.stop();
+        }
+}
     
      public int showStartAndEndTime(){
         String startBorrow = "";
@@ -255,7 +268,7 @@ public class Timer {
             con = Database.connectDb("win", "win016");
         
             Statement st = con.createStatement(); 
-            String sql = "SELECT dateTime,return_dateTime FROM Transaction WHERE userID='12345' and action='Borrow' ORDER BY dateTime DESC LIMIT 5";
+            String sql = "SELECT dateTime,return_dateTime FROM Transaction WHERE userID='"+User.getUserId()+"' and action='Borrow' ORDER BY dateTime DESC LIMIT 5";
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 date = rs.getTimestamp("dateTime");
@@ -282,7 +295,16 @@ public class Timer {
         }
         return i;
     }
-
+     
+    public boolean notiTimer(Object obj,int hr, int min, int sec) {
+        if(obj instanceof Sharing){
+            if(hr==0 && min == 10 && sec ==0){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public String[] getHisBorrow() {
         return hisBorrow;
     }

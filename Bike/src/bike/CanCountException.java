@@ -5,8 +5,8 @@ public class CanCountException extends Exception{
         super("Your CP is not enough,Plese select item again");
     }
 
-    public CanCountException(String message) {
-        super(message);
+    public CanCountException(String msg) {
+        super(msg);
     }
     
 }

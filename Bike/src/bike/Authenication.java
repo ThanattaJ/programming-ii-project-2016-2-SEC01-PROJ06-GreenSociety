@@ -126,7 +126,7 @@ public class Authenication {
 
             id++;
             sql = "INSERT INTO User VALUES('" + id + "','" + firstName + "','" + lastName + "','" + gender
-                    + "'," + birthDate + ",'" + congenitialDisease + "','" + email + "','" + tel + "','" + deptId + "',can_point='0','" + pass.toString() + "','"+newPath+"')";
+                    + "','" + birthDate + "','" + congenitialDisease + "','" + email + "','" + tel + "','" + deptId + "','0','" + pass.toString() + "','"+newPath+"')";
             s.executeUpdate(sql);
             if (position.equalsIgnoreCase("Technician") || position.equalsIgnoreCase("Officer")) {
                 insertOfficer(position, id);
@@ -183,7 +183,7 @@ public class Authenication {
         String lastname = name.substring(i+1,name.length());
         
         if(!path.equalsIgnoreCase(User.getImgPath())){
-            String typeFile = path.substring(path.indexOf("."),path.length()-1);
+            String typeFile = path.substring(path.length(),path.length());
             newPath = "/bike_gui/userProfile/"+User.getUserId()+typeFile;
             copyFileImg(path,newPath);
         }else{
@@ -256,6 +256,36 @@ public class Authenication {
             sqe.printStackTrace();
         }catch(Exception ex){
             ex.printStackTrace();
+        }
+    }
+    
+    public void forgetPass(String email,String psw) {
+        Connection con = null;
+        try {
+            
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(psw.getBytes());
+            byte[] pass = new byte[32];
+            pass = md.digest();
+            StringBuffer sb = new StringBuffer();
+
+            for (int i = 0; i < pass.length; i++) {
+                sb.append(Integer.toString((pass[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            con = Database.connectDb("ja","jaja036");
+            Statement s = con.createStatement();
+            String sql = "UPDATE User SET password='"+sb.toString()+"' WHERE email='"+email+"'";
+            s.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
