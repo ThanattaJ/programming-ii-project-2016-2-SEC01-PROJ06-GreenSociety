@@ -288,4 +288,28 @@ public class Authenication {
             e.printStackTrace();
         }
     }
+    public boolean checkEmail(String email) {
+        boolean check = false;
+        Connection con = null;
+        try {
+            con = Database.connectDb("ja","jaja036");
+            Statement s = con.createStatement();
+            String sql = "SELECT * FROM User WHERE email='"+email+"'";
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()){
+                check = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
 }

@@ -61,7 +61,6 @@ public class History {
     }
      
     public void HistoryByAdmin(String itemId,Timestamp startDate,Timestamp returnDate,String input,int amount){ //รับจาก ตัวแปรที่ต้องการส่งลง DB เป็น String
-        int officerID = 0;
         try{
             Connection connect = Database.connectDb("jan", "jan042");
             Class.forName("com.mysql.jdbc.Driver");
@@ -76,7 +75,7 @@ public class History {
             }
             this.historyId = ++count;
             
-             String temp ="INSERT INTO Transaction('transID', 'dateTime', 'return_dateTime', 'itemID', 'amount', 'userID', 'action')  VALUES " //set ค่าให้กับ Database
+             String temp ="INSERT INTO Transaction(transID,dateTime,return_dateTime,itemID,amount,userID,action) VALUES " //set ค่าให้กับ Database
                     + "("+this.historyId+",'"
                      +startDate+"','"
                      +returnDate+"','"

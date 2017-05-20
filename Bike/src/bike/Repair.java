@@ -9,12 +9,12 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Repair{
-    private int num;
+    private int countID;
     private String askingUser="";
     private String repairingUser="";
     private String statusUser="";
     private String timerUser;
-    private long peairId;
+    private long perpairId;
     private String problem;//ปัญหาของการซ่อมจักรยาน เช่น ยางแตก ช่างกรอก Asking
     private String detail;//รายละเอียด เช่น ต้องเปลี่ยนยาง ช่างกรอก Repairing
     private String bike="";//รับจาก GUI ให้ user กรอก
@@ -28,7 +28,7 @@ public class Repair{
     private long transIDAdminNotSuccess ;
     private int userID;
     private int itemId;
-    
+    private long userIDprepair;
     public Repair() {
         
     }
@@ -39,7 +39,7 @@ public class Repair{
         try{
             Connection connect = Database.connectDb("jan", "jan042");
             Statement st = connect.createStatement(); 
-            String temp = "SELECT Prepair_Desctiption.id,User.firstName,User.lastName,Transaction.userID FROM Green_Society.Prepair_Desctiption " +
+            String temp = "SELECT Prepair_Desctiption.id,User.firstName,User.lastName,User.userID FROM Green_Society.Prepair_Desctiption " +
                             "JOIN Transaction ON Prepair_Desctiption.transID=Transaction.transID " +
                             "INNER JOIN User ON Transaction.userID=User.userID " +
                             "LEFT JOIN Green_Society.Repair_State ON Prepair_Desctiption.id = Repair_State.item_id " +
@@ -49,8 +49,8 @@ public class Repair{
                 int idPrepair = rs.getInt("id");
                 String name = rs.getString("firstName");
                 String surname = rs.getString("lastName");
-                userID = rs.getInt("userID");
-                format = idPrepair+"    |     Name: "+name+"    |   Surname: "+surname+"    |   ID: "+userID;
+                userIDprepair = rs.getInt("userID");
+                format = idPrepair+"    |     Name: "+name+"    |   Surname: "+surname+"    |   ID: "+userIDprepair;
                 list.add(format);
             }
             
@@ -65,6 +65,12 @@ public class Repair{
         }
         return list;
     }
+
+    public long getUserIDprepair() {
+        return userIDprepair;
+    }
+    
+    
     
     public void connectDBForChangeToSuccessFromPerpair(long perpairID){ //รับ perpairID เพื่อเปลี่ยนเป็น Repair_State.Recieving -> success
          try{
@@ -275,7 +281,7 @@ public class Repair{
             while(rs.next()){
                 count = rs.getInt("countId");
             }
-            peairId = ++count;
+            perpairId = ++count;
             //------------------------------------------------------------------
             //ดึง transId ว่ามีมากที่สุดเท่าไร เพื่อให้มัน กรอกลง DB ได้ และไม่ซ้ำกับ transID
             String temp1 = "SELECT MAX(transId) AS countTransId FROM Transaction ";
@@ -287,7 +293,7 @@ public class Repair{
             countTransId = ++countTrans;
             //------------------------------------------------------------------
             //เอาข้อมูลลง DB prapair_Desctiption
-            String sqlid = "\'"+this.peairId+"\'";
+            String sqlid = "\'"+this.perpairId+"\'";
             String brand = "\'"+band+"\'";
             String sqlcolor = "\'"+color+"\'";
             String sqlWhy = "\'"+asking+"\'";
@@ -306,7 +312,7 @@ public class Repair{
             String userId = "\'"+userID+"\'";
             String action = "\'Repair\'";
             
-            String temp3 ="INSERT INTO Transaction('transID', 'dateTime', 'return_dateTime', 'itemID', 'amount', 'userID', 'action')  VALUES " //set ค่าให้กับ Database
+            String temp3 ="INSERT INTO Transaction(transID,dateTime,return_dateTime,itemID,amount,userID,action)  VALUES " //set ค่าให้กับ Database
                     + "("+this.countTransId+","
                     +"'"+startDate+"','"
                      +returnDate+"',"
@@ -346,7 +352,7 @@ public class Repair{
                 statusUser += "- "+rs.getString("Recieving") + "<br>";
             }
             
-            String temp2 = "SELECT dateTime,return_dateTime FROM `Transaction` WHERE transID = "+this.countTransId;
+            String temp2 = "SELECT dateTime FROM `Transaction` WHERE action LIKE 'Repair' AND userID =  "+userID;
             ResultSet rs2 = st.executeQuery(temp2);
             
             while(rs2.next()){
@@ -354,7 +360,19 @@ public class Repair{
                 endTime = rs2.getTimestamp("return_dateTime");
             }
             
-            if(startTime.equals(null)){
+            if(askingUser==null){
+                askingUser = "";
+            }
+            
+            if(repairingUser==null){
+                repairingUser = "";
+            }
+            
+            if(statusUser==null){
+                statusUser = "";
+            }
+            
+            if(startTime == null){
                 timerUser = "<html>Start: - </html>";
             }else{
                 timerUser = "<html>Start: "+startTime+"</html>";
@@ -411,7 +429,7 @@ public class Repair{
             ResultSet rs = st.executeQuery(temp);
 
             while(rs.next()){
-                this.num = rs.getInt("countId");
+                this.countID = rs.getInt("countId");
             }
         }   
         catch(Exception ex){
