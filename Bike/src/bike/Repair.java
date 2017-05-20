@@ -357,7 +357,6 @@ public class Repair{
             
             while(rs2.next()){
                 startTime = rs2.getTimestamp("dateTime");
-                endTime = rs2.getTimestamp("return_dateTime");
             }
             
             if(askingUser==null){
