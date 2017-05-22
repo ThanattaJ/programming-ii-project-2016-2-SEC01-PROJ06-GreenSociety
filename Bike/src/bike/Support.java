@@ -13,6 +13,7 @@ public class Support {
     }
     
     public void searchSupport(String search){
+        output = "";
         try{
             Connection connect = Database.connectDb("jan", "jan042");
             Class.forName("com.mysql.jdbc.Driver");
@@ -25,7 +26,7 @@ public class Support {
                 output+=("manualID : " + rs.getString("manualID"))+"\n";
                 output+=("manualDescription : \n" + rs.getString("manualDescription"))+"\n";
                 output+=("manualDetails : " + rs.getString("manualDetails")+"\n");
-                output+=("----------------------------------------------");
+                output+=("----------------------------------------------\n");
             }
             
             try {

@@ -29,8 +29,8 @@ public class History {
             Statement st = connect.createStatement(); 
             
             String temp = "SELECT dateTime,action,itemName,return_dateTime FROM Green_Society.Items "
-                    + "JOIN Transaction On Items.itemID = Transaction.itemID "
-                    + "WHERE NOT Transaction.action = 'Return' AND Transaction.userID= "+User.getUserId();
+                    + "RIGHT JOIN Transaction On Items.itemID = Transaction.itemID WHERE (Transaction.action = 'Repair'"
+                    + " OR Transaction.action='Borrow') AND Transaction.userID= "+User.getUserId();
             ResultSet rs = st.executeQuery(temp);
             
             while(rs.next()){
@@ -182,7 +182,7 @@ public class History {
         return output;
     }
     
-    public int statGreensocietyReturn(){//admin จะเห็นหน้าสถิติการใช้งานของ User แต่ล่ะคน เรียงลำดับการใช้งานมากไปน้อย
+    public int statGreensocietyReturn(){
         int statOfReturn=0;
         String month;
         String date;
@@ -312,7 +312,7 @@ public class History {
         return statOfBorrow;
     }
     
-    public String showBorrowUser(long id){ //user ใส่ไอดีตัวเองที่ต้องการรู้ประวัติการใช้งานของตัวเอง ดึงข้อมูลเฉพาะวันที่ยืม
+    public String showBorrowUser(long id){ 
         String output="";
         String format="";
         Timestamp borrow;
@@ -342,36 +342,8 @@ public class History {
         return format;
     }
     
-     public String showHistoryUser(long id){ //user ใส่ไอดีตัวเองที่ต้องการรู้ประวัติการใช้งานของตัวเอง ดึงข้อมูลเฉพาะวันที่คืน
-        String format="";
-        Timestamp returnDate;
-        try{
-            Connection connect = Database.connectDb("jan", "jan042");
-            Statement st = connect.createStatement();
-            String temp4 = "SELECT itemName FROM Green_Society.Items JOIN Transaction On Items.itemID = Transaction.itemID WHERE Transaction.itemID LIKE \"%\" GROUP BY Items.itemName";
-            ResultSet rs4 = st.executeQuery(temp4);
-            while(rs4.next()){
-//                returnDate = rs4.getTimestamp("return_dateTime");
-//                format += new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(returnDate);
-//                format +="\n";
-                    format = rs4.getString("");
-            }
-            
-            try {
-		if(connect != null){
-                    connect.close();
-		}
-		}catch (SQLException e){
-                    e.printStackTrace();
-		}      
-        }
-        catch(Exception ex){
-            System.out.println(ex);
-        }
-        return format;
-    }
 
-    public String showReturnUser(long id){ //user ใส่ไอดีตัวเองที่ต้องการรู้ประวัติการใช้งานของตัวเอง ดึงข้อมูลเฉพาะวันที่คืน
+    public String showReturnUser(long id){ 
         String format="";
         Timestamp returnDate;
         try{
@@ -400,7 +372,7 @@ public class History {
         return format;
     }
     
-    public String showActionUserFormDatabase(long id){ //user ใส่ไอดีตัวเองที่ต้องการรู้ประวัติการใช้งานของตัวเอง ดึงข้อมูลเฉพาะวันที่คืน
+    public String showActionUserFormDatabase(long id){ 
         String format="";
         String temp;
         try{
@@ -429,7 +401,7 @@ public class History {
         return format;
     }
     
-    public String showItemUserFormDatabase(long id){ //user ใส่ไอดีตัวเองที่ต้องการรู้ประวัติการใช้งานของตัวเอง ดึงข้อมูลเฉพาะวันที่คืน
+    public String showItemUserFormDatabase(long id){ 
         String format="";
         String temp;
         try{
@@ -457,7 +429,7 @@ public class History {
         return format;
     }
     
-    public String showRepairUser(long id){ //user ใส่ไอดีตัวเองที่ต้องการรู้ประวัติการใช้งานของตัวเอง ดึงข้อมูลเฉพาะวันที่คืน
+    public String showRepairUser(long id){ 
         String output="";
         try{
             Connection connect = Database.connectDb("jan", "jan042");

@@ -334,6 +334,20 @@ public class Repair{
         }
 
     }
+
+    public void setAskingUser(String askingUser) {
+        this.askingUser = askingUser;
+    }
+
+    public void setRepairingUser(String repairingUser) {
+        this.repairingUser = repairingUser;
+    }
+
+    public void setStatusUser(String statusUser) {
+        this.statusUser = statusUser;
+    }
+    
+    
         
     public void connectDBShowRepairForUserFollowing(long userID){//เพื่อที่ User จะสามารถดูและติดตามดารซ่อมของตัวเองได้
         Timestamp startTime=null;

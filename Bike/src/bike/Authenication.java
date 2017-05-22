@@ -107,13 +107,7 @@ public class Authenication {
             congenitialDisease = disease;
         }
         
-        if(pathImg.equalsIgnoreCase("default")){
-            newPath = "/bike_gui/userProfile/default.png";
-        }else{
-            String typeFile = pathImg.substring(pathImg.indexOf("."),pathImg.length());
-            newPath = "/src/bike_gui/userProfile/"+User.getUserId()+typeFile;
-            copyFileImg(pathImg,newPath);
-        }
+        
         try {
             con = Database.connectDb("ja", "jaja036");
             Statement s = con.createStatement();
@@ -125,8 +119,18 @@ public class Authenication {
             }
 
             id++;
+            
+            if(pathImg.equalsIgnoreCase("default")){
+                newPath = "/bike_gui/userProfile/default.png";
+            }else{
+                String typeFile = pathImg.substring(pathImg.length()-4,pathImg.length());
+                newPath = "/bike_gui/userProfile/"+id+typeFile;
+                copyFileImg(pathImg,newPath);
+            }
+            
             sql = "INSERT INTO User VALUES('" + id + "','" + firstName + "','" + lastName + "','" + gender
-                    + "','" + birthDate + "','" + congenitialDisease + "','" + email + "','" + tel + "','" + deptId + "','0','" + pass.toString() + "','"+newPath+"')";
+                    + "','" + birthDate + "','" + congenitialDisease + "','" + email + "','" + tel + "','" + deptId + "','0','" + pass.toString() + "','"
+                    +newPath+"')";
             s.executeUpdate(sql);
             if (position.equalsIgnoreCase("Technician") || position.equalsIgnoreCase("Officer")) {
                 insertOfficer(position, id);
@@ -152,14 +156,14 @@ public class Authenication {
             con = Database.connectDb("ja", "jaja036");
             Statement s = con.createStatement();
 
-            sql = "SELECT MAX(Officer) AS id FROM Officer";
+            sql = "SELECT MAX(officerID) AS id FROM Officer";
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
                 idOfficer = rs.getInt("id");
             }
 
             idOfficer++;
-            sql = "INSERT INTO User VALUES('" + idOfficer + "','" + idUser + "','" + position + "')";
+            sql = "INSERT INTO Officer VALUES('" + idOfficer + "','" + idUser + "','" + position + "')";
             s.executeUpdate(sql);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -183,7 +187,7 @@ public class Authenication {
         String lastname = name.substring(i+1,name.length());
         
         if(!path.equalsIgnoreCase(User.getImgPath())){
-            String typeFile = path.substring(path.length(),path.length());
+            String typeFile = path.substring(path.length()-4,path.length());
             newPath = "/bike_gui/userProfile/"+User.getUserId()+typeFile;
             copyFileImg(path,newPath);
         }else{
@@ -212,7 +216,7 @@ public class Authenication {
     public void copyFileImg(String sourceFile,String targetFile){
         try{
             FileInputStream fis = new FileInputStream(sourceFile);
-            FileOutputStream fos = new FileOutputStream(targetFile);
+            FileOutputStream fos = new FileOutputStream("src/"+targetFile);
             
             byte[] data = new byte[1024];
             int numFile;

@@ -314,10 +314,10 @@ public class Sharing {
         return equipId;
     }
         
-    public void addItem(String id,String name,int count,String path){
+    public void addItem(String id,String name,int cp,int count,String path){
         Connection con = null;
         String newPath;
-        int available=0;
+        int available=count;
         String typeFile = path.substring(path.length()-4,path.length());
         newPath = "/bike_gui/itemPic/"+name+typeFile;
         copyFileImg(path,newPath);
@@ -325,7 +325,7 @@ public class Sharing {
         try{
             con = Database.connectDb("ja","jaja036");
             Statement s = con.createStatement();
-            String sql = "INSERT INTO Items VALUES ('"+id+"','"+name+"','"+count+"','"+count+"','"+newPath+",)";
+            String sql = "INSERT INTO Items VALUES ('"+id+"','"+name+"','"+cp+"','"+count+"','"+available+"','"+newPath+"')";
             s.executeUpdate(sql);
             setDataOfItem();
         }
@@ -350,7 +350,7 @@ public class Sharing {
             ResultSet rs = s.executeQuery(sql);
             rs.first();
             available = rs.getInt("amount")-rs.getInt("availableNumber");
-            sql = "UPDATE Items SET name='"+name+"',amount='"+count+"',availableNumber='"+(count-available)+"' WHERE itemID='"+id+"'";
+            sql = "UPDATE Items SET itemName='"+name+"',amount='"+count+"',availableNumber='"+(count-available)+"' WHERE itemID='"+id+"'";
             s.executeUpdate(sql);
             setDataOfItem();
         }
@@ -566,7 +566,7 @@ public class Sharing {
     public void copyFileImg(String sourceFile,String targetFile){
         try{
             FileInputStream fis = new FileInputStream(sourceFile);
-            FileOutputStream fos = new FileOutputStream(targetFile);
+            FileOutputStream fos = new FileOutputStream("src/"+targetFile);
             
             byte[] data = new byte[1024];
             int numFile;
