@@ -5,10 +5,15 @@
         <group>
             <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike_gui/GreenSociety.java</file>
             <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/Sharing.java</file>
+            <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/CanCounter.java</file>
+            <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/Repair.java</file>
+            <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/Register.java</file>
             <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/Authenication.java</file>
+            <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/History.java</file>
             <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/Timer.java</file>
             <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/Support.java</file>
             <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/News.java</file>
+            <file>file:/D:/SIT/Than/INT105/Work/Project/Green_Society/Bike/src/bike/User.java</file>
         </group>
     </open-files>
 </project-private>
